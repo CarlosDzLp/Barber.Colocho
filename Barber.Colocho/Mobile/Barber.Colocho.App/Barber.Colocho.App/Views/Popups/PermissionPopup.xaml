@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="Barber.Colocho.App.Views.Popups.PermissionPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+    xmlns:font="clr-namespace:Barber.Colocho.App.Helpers"
+    xmlns:pages="clr-namespace:Mopups.Pages;assembly=Mopups"
+    BackgroundColor="#80808080"
+    CloseWhenBackgroundIsClicked="False">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="200"
+            PositionIn="Bottom"
+            PositionOut="Right"
+            ScaleIn="2"
+            ScaleOut="0.5" />
+    </pages:PopupPage.Animation>
+    <Border
+        BackgroundColor="{x:StaticResource ColorWhite}"
+        Stroke="{x:StaticResource ColorWhite}"
+        StrokeThickness="0">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="0" />
+        </Border.StrokeShape>
+        <VerticalStackLayout
+            x:Name="stackView"
+            Padding="20,20"
+            BackgroundColor="{x:StaticResource ColorWhite}"
+            HorizontalOptions="Center"
+            Spacing="20"
+            VerticalOptions="Center">
+            <Image x:Name="imgpermission" HeightRequest="150" />
+            <Label
+                x:Name="txtmessage"
+                FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                FontSize="20"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Justify"
+                TextColor="{x:StaticResource ColorBlack}" />
+            <Button
+                BackgroundColor="{x:StaticResource ColorWhite}"
+                Clicked="Button_Clicked"
+                FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                FontSize="16"
+                Text="Aceptar"
+                TextColor="{x:StaticResource ColorText}" />
+        </VerticalStackLayout>
+    </Border>
+</pages:PopupPage>

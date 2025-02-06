@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Barber.Colocho.App.Views.Page.CalendarPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
+    xmlns:font="clr-namespace:Barber.Colocho.App.Helpers"
+    xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+    Title="Agenda"
+    IconImageSource="calendar_icon.svg"
+    NavigationPage.HasNavigationBar="False"
+    Style="{x:StaticResource BackgroundPage}">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource ColorWhite}" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <Grid RowDefinitions="*,*">
+        <controls:Calendar
+            x:Name="calendar"
+            Grid.Row="0"
+            AnimateCalendar="True"
+            ArrowsBackgroundColor="{x:StaticResource ColorText}"
+            ArrowsBorderColor="{x:StaticResource ColorText}"
+            ArrowsBorderWidth="2"
+            ArrowsColor="{x:StaticResource ColorWhite}"
+            ArrowsFontAttribute="None"
+            ArrowsFontFamily="{x:Static font:FontAwesome.RobotoLight}"
+            ArrowsFontSize="20"
+            CalendarLayout="Month"
+            CalendarSectionShown="True"
+            Culture="{Binding Culture}"
+            DaysTitleColor="{x:StaticResource ColorBlack}"
+            DaysTitleWeekendColor="{x:StaticResource ColorDimBlack}"
+            DeselectedDayTextColor="{x:StaticResource ColorBlack}"
+            EventIndicatorColor="{x:StaticResource ColorBlack}"
+            EventIndicatorSelectedColor="{x:StaticResource ColorWhite}"
+            EventIndicatorType="BottomDot"
+            EventsScrollViewVisible="True"
+            FirstDayOfWeek="Monday"
+            FooterArrowVisible="True"
+            MonthLabelColor="{x:StaticResource ColorText}"
+            OtherMonthDayColor="{x:StaticResource ColorPlaceholder}"
+            OtherMonthSelectedDayColor="{x:StaticResource ColorDimBlack}"
+            SelectedDate="{Binding SelectedDate}"
+            SelectedDateColor="{x:StaticResource ColorText}"
+            SelectedDayBackgroundColor="{x:StaticResource ColorBlack}"
+            SelectedDayTextColor="{x:StaticResource ColorWhite}"
+            SelectedTodayTextColor="{x:StaticResource ColorBlack}"
+            TodayFillColor="{x:StaticResource ColorText}"
+            TodayOutlineColor="{x:StaticResource ColorText}"
+            TodayTextColor="{x:StaticResource ColorWhite}"
+            YearLabelColor="{x:StaticResource ColorBlack}" />
+    </Grid>
+</ContentPage>

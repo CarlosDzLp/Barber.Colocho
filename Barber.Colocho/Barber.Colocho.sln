@@ -1,0 +1,99 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35506.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WEB", "WEB", "{C03767DC-D24B-4AB7-9C91-46DF13A55064}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{100CE38D-9A40-4BC8-871B-3A37CF2AF81B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.App", "Mobile\Barber.Colocho.App\Barber.Colocho.App\Barber.Colocho.App.csproj", "{38CDA7A7-6480-418A-85E2-DD1E833C3C4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.App.Droid", "Mobile\Barber.Colocho.App\Barber.Colocho.App.Droid\Barber.Colocho.App.Droid.csproj", "{D4C78540-5650-4929-A30C-AE711CD8DA35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.App.iOS", "Mobile\Barber.Colocho.App\Barber.Colocho.App.iOS\Barber.Colocho.App.iOS.csproj", "{3B0117A2-C4FD-4F93-98A0-D224B8AAF463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.Web", "WEB\Barber.Colocho.Web\Barber.Colocho.Web.csproj", "{42B8A074-9955-4101-9500-021C634CA4ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClassLibraries", "ClassLibraries", "{9E6B6B11-D639-4B14-8CA0-74F5419AFE84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.Entities", "WEB\ClassLibraries\Barber.Colocho.Entities\Barber.Colocho.Entities.csproj", "{40C27CB2-D513-4F63-9466-9A5837186A66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.Repository", "WEB\ClassLibraries\Barber.Colocho.Repository\Barber.Colocho.Repository.csproj", "{EEAEE6B7-754E-44B5-9C76-EA3EE0E1EA5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.DataAccess", "WEB\ClassLibraries\Barber.Colocho.DataAccess\Barber.Colocho.DataAccess.csproj", "{ED8A865E-1AA9-41D9-BD19-BE8E70D9F81B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.Enums", "WEB\ClassLibraries\Barber.Colocho.Enums\Barber.Colocho.Enums.csproj", "{9D3A58EB-55C2-4BD1-9A26-DD2D395FD88A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.Core", "WEB\ClassLibraries\Barber.Colocho.Core\Barber.Colocho.Core.csproj", "{C42CBEBF-AE1D-4E21-9F86-482C8D110DBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.Models", "WEB\ClassLibraries\Barber.Colocho.Models\Barber.Colocho.Models.csproj", "{6D4B9910-8AEC-4D9E-B7FD-73B40D92B29B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38CDA7A7-6480-418A-85E2-DD1E833C3C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38CDA7A7-6480-418A-85E2-DD1E833C3C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38CDA7A7-6480-418A-85E2-DD1E833C3C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38CDA7A7-6480-418A-85E2-DD1E833C3C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4C78540-5650-4929-A30C-AE711CD8DA35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4C78540-5650-4929-A30C-AE711CD8DA35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4C78540-5650-4929-A30C-AE711CD8DA35}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D4C78540-5650-4929-A30C-AE711CD8DA35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4C78540-5650-4929-A30C-AE711CD8DA35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4C78540-5650-4929-A30C-AE711CD8DA35}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3B0117A2-C4FD-4F93-98A0-D224B8AAF463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B0117A2-C4FD-4F93-98A0-D224B8AAF463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B0117A2-C4FD-4F93-98A0-D224B8AAF463}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3B0117A2-C4FD-4F93-98A0-D224B8AAF463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B0117A2-C4FD-4F93-98A0-D224B8AAF463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B0117A2-C4FD-4F93-98A0-D224B8AAF463}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{42B8A074-9955-4101-9500-021C634CA4ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B8A074-9955-4101-9500-021C634CA4ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B8A074-9955-4101-9500-021C634CA4ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B8A074-9955-4101-9500-021C634CA4ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40C27CB2-D513-4F63-9466-9A5837186A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C27CB2-D513-4F63-9466-9A5837186A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C27CB2-D513-4F63-9466-9A5837186A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C27CB2-D513-4F63-9466-9A5837186A66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEAEE6B7-754E-44B5-9C76-EA3EE0E1EA5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEAEE6B7-754E-44B5-9C76-EA3EE0E1EA5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEAEE6B7-754E-44B5-9C76-EA3EE0E1EA5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEAEE6B7-754E-44B5-9C76-EA3EE0E1EA5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED8A865E-1AA9-41D9-BD19-BE8E70D9F81B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED8A865E-1AA9-41D9-BD19-BE8E70D9F81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED8A865E-1AA9-41D9-BD19-BE8E70D9F81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED8A865E-1AA9-41D9-BD19-BE8E70D9F81B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D3A58EB-55C2-4BD1-9A26-DD2D395FD88A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D3A58EB-55C2-4BD1-9A26-DD2D395FD88A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D3A58EB-55C2-4BD1-9A26-DD2D395FD88A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D3A58EB-55C2-4BD1-9A26-DD2D395FD88A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C42CBEBF-AE1D-4E21-9F86-482C8D110DBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C42CBEBF-AE1D-4E21-9F86-482C8D110DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C42CBEBF-AE1D-4E21-9F86-482C8D110DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C42CBEBF-AE1D-4E21-9F86-482C8D110DBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D4B9910-8AEC-4D9E-B7FD-73B40D92B29B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D4B9910-8AEC-4D9E-B7FD-73B40D92B29B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D4B9910-8AEC-4D9E-B7FD-73B40D92B29B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D4B9910-8AEC-4D9E-B7FD-73B40D92B29B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{38CDA7A7-6480-418A-85E2-DD1E833C3C4C} = {100CE38D-9A40-4BC8-871B-3A37CF2AF81B}
+		{D4C78540-5650-4929-A30C-AE711CD8DA35} = {100CE38D-9A40-4BC8-871B-3A37CF2AF81B}
+		{3B0117A2-C4FD-4F93-98A0-D224B8AAF463} = {100CE38D-9A40-4BC8-871B-3A37CF2AF81B}
+		{42B8A074-9955-4101-9500-021C634CA4ED} = {C03767DC-D24B-4AB7-9C91-46DF13A55064}
+		{9E6B6B11-D639-4B14-8CA0-74F5419AFE84} = {C03767DC-D24B-4AB7-9C91-46DF13A55064}
+		{40C27CB2-D513-4F63-9466-9A5837186A66} = {9E6B6B11-D639-4B14-8CA0-74F5419AFE84}
+		{EEAEE6B7-754E-44B5-9C76-EA3EE0E1EA5C} = {9E6B6B11-D639-4B14-8CA0-74F5419AFE84}
+		{ED8A865E-1AA9-41D9-BD19-BE8E70D9F81B} = {9E6B6B11-D639-4B14-8CA0-74F5419AFE84}
+		{9D3A58EB-55C2-4BD1-9A26-DD2D395FD88A} = {9E6B6B11-D639-4B14-8CA0-74F5419AFE84}
+		{C42CBEBF-AE1D-4E21-9F86-482C8D110DBF} = {9E6B6B11-D639-4B14-8CA0-74F5419AFE84}
+		{6D4B9910-8AEC-4D9E-B7FD-73B40D92B29B} = {9E6B6B11-D639-4B14-8CA0-74F5419AFE84}
+	EndGlobalSection
+EndGlobal

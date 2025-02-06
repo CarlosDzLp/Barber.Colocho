@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Barber.Colocho.App.Views.Page.Company.ListAddressCompanyPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Barber.Colocho.App.Controls"
+    xmlns:efect="clr-namespace:Barber.Colocho.App.Effects"
+    xmlns:font="clr-namespace:Barber.Colocho.App.Helpers"
+    xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+    Title="ListAddressCompanyPage"
+    BackgroundColor="#80808080"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource ColorWhite}" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <Grid
+        Margin="0,80,0,0"
+        BackgroundColor="{x:StaticResource ColorDimGray}"
+        RowDefinitions="Auto,Auto,*">
+        <Grid
+            Grid.Row="0"
+            Padding="10"
+            BackgroundColor="{x:StaticResource ColorWhite}"
+            ColumnDefinitions="25,*,Auto"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start"
+            ZIndex="10">
+            <Image
+                Grid.Column="0"
+                HeightRequest="25"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                WidthRequest="25" />
+            <Label
+                Grid.Column="1"
+                FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                FontSize="25"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="Mis Direcciones"
+                TextColor="{x:StaticResource ColorBlack}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+            <Image
+                Grid.Column="2"
+                HeightRequest="25"
+                HorizontalOptions="End"
+                Source="icon_close.png"
+                VerticalOptions="Center"
+                WidthRequest="25">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+        <VerticalStackLayout
+            Grid.Row="1"
+            Padding="0,0,0,10"
+            BackgroundColor="{x:StaticResource ColorWhite}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <Border
+                Margin="20,0"
+                BackgroundColor="{x:StaticResource ColorDimGray}"
+                HeightRequest="50"
+                Stroke="{x:StaticResource ColorDimGray}"
+                StrokeThickness="1">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25" />
+                </Border.StrokeShape>
+                <Grid
+                    Grid.Column="1"
+                    Padding="15,0"
+                    ColumnDefinitions="*,Auto"
+                    HeightRequest="50">
+                    <Entry
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                        FontSize="16"
+                        HeightRequest="50"
+                        IsSpellCheckEnabled="False"
+                        IsTextPredictionEnabled="False"
+                        Keyboard="Text"
+                        Placeholder="Buscar"
+                        PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                        Text="{Binding Search}"
+                        TextColor="{x:StaticResource ColorBlack}">
+                        <Entry.Effects>
+                            <efect:UnderlineEntryEffect />
+                        </Entry.Effects>
+                    </Entry>
+                    <Image
+                        Grid.Column="1"
+                        BackgroundColor="Transparent"
+                        HeightRequest="25"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="25">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="{x:Static font:FontAwesome.ProThin}"
+                                Glyph="{x:Static font:FontAwesome.Search}"
+                                Size="25"
+                                Color="{x:StaticResource ColorBlack}" />
+                        </Image.Source>
+                    </Image>
+                </Grid>
+            </Border>
+        </VerticalStackLayout>
+        <CollectionView
+            x:Name="collectionviewAddress"
+            Grid.Row="2"
+            ItemSizingStrategy="MeasureAllItems"
+            ItemsSource="{Binding ListAddress}"
+            SelectionChanged="collectionviewAddress_SelectionChanged"
+            SelectionMode="Single"
+            VerticalScrollBarVisibility="Never">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    Orientation="Vertical"
+                    Span="1"
+                    VerticalItemSpacing="0" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10,5" BackgroundColor="{x:StaticResource ColorWhite}">
+                        <Grid.Shadow>
+                            <Shadow
+                                Brush="{x:StaticResource ColorText}"
+                                Opacity="1"
+                                Radius="10"
+                                Offset="5,5" />
+                        </Grid.Shadow>
+                        <Border
+                            Padding="10"
+                            BackgroundColor="{x:StaticResource ColorWhite}"
+                            Stroke="{x:StaticResource ColorWhite}"
+                            StrokeThickness="2">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+                            <VerticalStackLayout Spacing="10">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label
+                                        Grid.Column="0"
+                                        FontAttributes="Bold"
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                                        FontSize="20"
+                                        Text="{Binding Name}"
+                                        TextColor="{x:StaticResource ColorText}" />
+                                    <HorizontalStackLayout
+                                        Grid.Column="1"
+                                        IsVisible="{Binding IsDefault}"
+                                        Spacing="10">
+                                        <Image
+                                            BackgroundColor="Transparent"
+                                            HeightRequest="25"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center"
+                                            WidthRequest="25">
+                                            <Image.Source>
+                                                <FontImageSource
+                                                    FontFamily="{x:Static font:FontAwesome.ProSolid}"
+                                                    Glyph="{x:Static font:FontAwesome.Check}"
+                                                    Size="25"
+                                                    Color="{x:StaticResource ColorText}" />
+                                            </Image.Source>
+                                        </Image>
+                                    </HorizontalStackLayout>
+                                </Grid>
+                                <Label HorizontalOptions="Start">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                                FontSize="14"
+                                                Text="{Binding Street}"
+                                                TextColor="{x:StaticResource ColorBlack}" />
+                                            <Span Text=" " TextColor="{x:StaticResource ColorWhite}" />
+                                            <Span
+                                                FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                                FontSize="14"
+                                                Text="{Binding NumExt}"
+                                                TextColor="{x:StaticResource ColorBlack}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label HorizontalOptions="Start">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                                FontSize="14"
+                                                Text="{Binding ColonyName}"
+                                                TextColor="{x:StaticResource ColorBlack}" />
+                                            <Span Text=" " TextColor="{x:StaticResource ColorWhite}" />
+                                            <Span
+                                                FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                                FontSize="14"
+                                                Text="{Binding CodePostal}"
+                                                TextColor="{x:StaticResource ColorBlack}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label HorizontalOptions="Start">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                                FontSize="14"
+                                                Text="{Binding CityName}"
+                                                TextColor="{x:StaticResource ColorBlack}" />
+                                            <Span Text=" " TextColor="{x:StaticResource ColorWhite}" />
+                                            <Span
+                                                FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                                FontSize="14"
+                                                Text="{Binding StateName}"
+                                                TextColor="{x:StaticResource ColorBlack}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label
+                                    FontFamily="{x:Static font:FontAwesome.RobotoLight}"
+                                    FontSize="12"
+                                    HorizontalOptions="End"
+                                    HorizontalTextAlignment="End"
+                                    Text="{Binding Created, StringFormat='{0:dd/MM/yyyy}'}"
+                                    TextColor="{x:StaticResource ColorBlack}" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

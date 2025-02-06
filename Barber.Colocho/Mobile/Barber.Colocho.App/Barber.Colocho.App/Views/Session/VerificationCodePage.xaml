@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Barber.Colocho.App.Views.Session.VerificationCodePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Barber.Colocho.App.Controls"
+    xmlns:efect="clr-namespace:Barber.Colocho.App.Effects"
+    xmlns:font="clr-namespace:Barber.Colocho.App.Helpers"
+    xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+    xmlns:triger="clr-namespace:Barber.Colocho.App.Triggers"
+    Title="VerificationCodePage"
+    NavigationPage.HasNavigationBar="False"
+    Style="{x:StaticResource BackgroundPage}"
+    ZIndex="0">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource ColorWhite}" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <ScrollView
+        Orientation="Vertical"
+        VerticalOptions="FillAndExpand"
+        VerticalScrollBarVisibility="Never">
+        <Grid RowDefinitions="Auto,*">
+            <controls:ToolBarView Grid.Row="0" IsVisibleTitle="False" />
+            <StackLayout
+                Grid.Row="1"
+                Margin="20,30,20,20"
+                Spacing="20">
+                <Label
+                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                    FontSize="35"
+                    HorizontalTextAlignment="Start"
+                    Text="¡Ya! Casi terminamos"
+                    TextColor="{x:StaticResource ColorBlack}" />
+                <Border
+                    Margin="0,20,0,20"
+                    Padding="10,30"
+                    BackgroundColor="{x:StaticResource ColorGray}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Grid
+                        Padding="10,10"
+                        ColumnDefinitions="50,50,50,50,50"
+                        ColumnSpacing="10"
+                        HorizontalOptions="CenterAndExpand">
+                        <Border
+                            Grid.Column="0"
+                            BackgroundColor="{x:StaticResource ColorDimGray}"
+                            HeightRequest="60"
+                            Stroke="{x:StaticResource ColorDimGray}"
+                            StrokeThickness="1"
+                            WidthRequest="50">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+                            <Entry
+                                x:Name="txtuno"
+                                FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                FontSize="30"
+                                HeightRequest="60"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                IsEnabled="{Binding IsEnabledEntry}"
+                                Keyboard="Numeric"
+                                MaxLength="1"
+                                PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                                Text="{Binding NumberUno}"
+                                TextChanged="OnEntryCompleted"
+                                TextColor="{x:StaticResource ColorText}"
+                                WidthRequest="50"
+                                ZIndex="1">
+                                <Entry.Effects>
+                                    <efect:UnderlineEntryEffect />
+                                </Entry.Effects>
+                            </Entry>
+                        </Border>
+                        <Border
+                            Grid.Column="1"
+                            BackgroundColor="{x:StaticResource ColorDimGray}"
+                            HeightRequest="60"
+                            Stroke="{x:StaticResource ColorDimGray}"
+                            StrokeThickness="1"
+                            WidthRequest="50">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="5" />
+                            </Border.StrokeShape>
+                            <Entry
+                                x:Name="txtdos"
+                                FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                FontSize="30"
+                                HeightRequest="60"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                IsEnabled="{Binding IsEnabledEntry}"
+                                Keyboard="Numeric"
+                                MaxLength="1"
+                                PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                                Text="{Binding NumberDos}"
+                                TextChanged="OnEntryCompleted"
+                                TextColor="{x:StaticResource ColorText}"
+                                WidthRequest="50"
+                                ZIndex="2">
+                                <Entry.Effects>
+                                    <efect:UnderlineEntryEffect />
+                                </Entry.Effects>
+                            </Entry>
+                        </Border>
+                        <Border
+                            Grid.Column="2"
+                            BackgroundColor="{x:StaticResource ColorDimGray}"
+                            HeightRequest="60"
+                            Stroke="{x:StaticResource ColorDimGray}"
+                            StrokeThickness="1"
+                            WidthRequest="50">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="5" />
+                            </Border.StrokeShape>
+                            <Entry
+                                x:Name="txttres"
+                                FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                FontSize="30"
+                                HeightRequest="60"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                IsEnabled="{Binding IsEnabledEntry}"
+                                Keyboard="Numeric"
+                                MaxLength="1"
+                                PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                                Text="{Binding NumberTres}"
+                                TextChanged="OnEntryCompleted"
+                                TextColor="{x:StaticResource ColorText}"
+                                WidthRequest="50"
+                                ZIndex="3">
+                                <Entry.Effects>
+                                    <efect:UnderlineEntryEffect />
+                                </Entry.Effects>
+                            </Entry>
+                        </Border>
+                        <Border
+                            Grid.Column="3"
+                            BackgroundColor="{x:StaticResource ColorDimGray}"
+                            HeightRequest="60"
+                            Stroke="{x:StaticResource ColorDimGray}"
+                            StrokeThickness="1"
+                            WidthRequest="50">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="5" />
+                            </Border.StrokeShape>
+                            <Entry
+                                x:Name="txtcuatro"
+                                FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                FontSize="30"
+                                HeightRequest="60"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                IsEnabled="{Binding IsEnabledEntry}"
+                                Keyboard="Numeric"
+                                MaxLength="1"
+                                PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                                Text="{Binding NumberCuatro}"
+                                TextChanged="OnEntryCompleted"
+                                TextColor="{x:StaticResource ColorText}"
+                                WidthRequest="50"
+                                ZIndex="4">
+                                <Entry.Effects>
+                                    <efect:UnderlineEntryEffect />
+                                </Entry.Effects>
+                            </Entry>
+                        </Border>
+                        <Border
+                            Grid.Column="4"
+                            BackgroundColor="{x:StaticResource ColorDimGray}"
+                            HeightRequest="60"
+                            Stroke="{x:StaticResource ColorDimGray}"
+                            StrokeThickness="1"
+                            WidthRequest="50">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="5" />
+                            </Border.StrokeShape>
+                            <Entry
+                                x:Name="txtcinco"
+                                FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                FontSize="30"
+                                HeightRequest="60"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                IsEnabled="{Binding IsEnabledEntry}"
+                                Keyboard="Numeric"
+                                MaxLength="1"
+                                PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                                Text="{Binding NumberCinco}"
+                                TextChanged="OnEntryCompleted"
+                                TextColor="{x:StaticResource ColorText}"
+                                WidthRequest="50"
+                                ZIndex="5">
+                                <Entry.Effects>
+                                    <efect:UnderlineEntryEffect />
+                                </Entry.Effects>
+                            </Entry>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <Label Margin="0,20,0,0" HorizontalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                                FontSize="14"
+                                Text="Puedes enviar el código, despues:"
+                                TextColor="{x:StaticResource ColorBlack}" />
+                            <Span
+                                FontAttributes="Bold"
+                                Text=" "
+                                TextColor="{x:StaticResource ColorWhite}" />
+                            <Span
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                                FontSize="14"
+                                Text="{Binding Time}"
+                                TextColor="{x:StaticResource ColorText}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label
+                    Margin="0,20,0,0"
+                    FontAttributes="Bold"
+                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding IsEnabledResendCode}"
+                    Text="Reenviar código"
+                    TextColor="{Binding IsEnabledColor}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_ResendCode" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Button
+                    Margin="0,20,0,20"
+                    BackgroundColor="{Binding IsEnabledButton}"
+                    Command="{Binding SendCodeCommand}"
+                    CornerRadius="5"
+                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                    FontSize="16"
+                    HeightRequest="60"
+                    IsEnabled="{Binding IsBussy}"
+                    Text="Enviar"
+                    TextColor="{x:StaticResource ColorWhite}" />
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

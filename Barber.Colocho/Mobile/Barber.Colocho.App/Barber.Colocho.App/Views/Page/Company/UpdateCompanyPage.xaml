@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Barber.Colocho.App.Views.Page.Company.UpdateCompanyPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Barber.Colocho.App.Controls"
+    xmlns:efect="clr-namespace:Barber.Colocho.App.Effects"
+    xmlns:font="clr-namespace:Barber.Colocho.App.Helpers"
+    xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+    Title="UpdateCompanyPage"
+    BackgroundColor="{x:StaticResource ColorWhite}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource ColorWhite}" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <Grid RowDefinitions="Auto,*">
+        <controls:ToolBarView
+            Title="Nueva Barbería"
+            Grid.Row="0"
+            IsVisibleTitle="True" />
+        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
+            <StackLayout Margin="20,30,20,20" Spacing="20">
+                <Label
+                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                    FontSize="35"
+                    HorizontalTextAlignment="Start"
+                    Text="¡Puedes actualizar tu barbería, las veces que necesites"
+                    TextColor="{x:StaticResource ColorBlack}" />
+                <Border
+                    Margin="0,20,0,10"
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorDimGray}"
+                    IsVisible="{Binding IsVisibleAddress}"
+                    Stroke="{x:StaticResource ColorDimGray}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="10">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                                FontSize="20"
+                                Text="{Binding Address.Name}"
+                                TextColor="{x:StaticResource ColorText}" />
+                            <HorizontalStackLayout Grid.Column="1" Spacing="10">
+                                <Image
+                                    BackgroundColor="Transparent"
+                                    HeightRequest="25"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Center"
+                                    WidthRequest="25">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding DeleteAddressCommand}" NumberOfTapsRequired="1" />
+                                    </Image.GestureRecognizers>
+                                    <Image.Source>
+                                        <FontImageSource
+                                            FontFamily="{x:Static font:FontAwesome.ProSolid}"
+                                            Glyph="{x:Static font:FontAwesome.Delete}"
+                                            Size="25"
+                                            Color="{x:StaticResource ColorText}" />
+                                    </Image.Source>
+                                </Image>
+                            </HorizontalStackLayout>
+                        </Grid>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="14"
+                                        Text="{Binding Address.Street}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " TextColor="{x:StaticResource ColorWhite}" />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="14"
+                                        Text="{Binding Address.NumExt}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="14"
+                                        Text="{Binding Address.ColonyName}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " TextColor="{x:StaticResource ColorWhite}" />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="14"
+                                        Text="{Binding Address.CodePostal}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="14"
+                                        Text="{Binding Address.CityName}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " TextColor="{x:StaticResource ColorWhite}" />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="14"
+                                        Text="{Binding Address.StateName}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label
+                            FontFamily="{x:Static font:FontAwesome.RobotoLight}"
+                            FontSize="12"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"
+                            Text="{Binding Address.Created, StringFormat='{0:dd/MM/yyyy}'}"
+                            TextColor="{x:StaticResource ColorBlack}" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border
+                    Margin="0,10,0,0"
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorDimGray}"
+                    Stroke="{x:StaticResource ColorDimGray}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Entry
+                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                        FontSize="16"
+                        Keyboard="Text"
+                        Placeholder="Nombre de la barbería"
+                        PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                        Text="{Binding Name}"
+                        TextColor="{x:StaticResource ColorBlack}">
+                        <Entry.Effects>
+                            <efect:UnderlineEntryEffect />
+                        </Entry.Effects>
+                    </Entry>
+                </Border>
+                <Border
+                    Margin="0,10,0,0"
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorDimGray}"
+                    Stroke="{x:StaticResource ColorDimGray}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Entry
+                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                        FontSize="16"
+                        Keyboard="Text"
+                        Placeholder="RFC"
+                        PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                        Text="{Binding RFC}"
+                        TextColor="{x:StaticResource ColorBlack}"
+                        TextTransform="Uppercase">
+                        <Entry.Effects>
+                            <efect:UnderlineEntryEffect />
+                        </Entry.Effects>
+                    </Entry>
+                </Border>
+                <Border
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorDimGray}"
+                    Stroke="{x:StaticResource ColorDimGray}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Editor
+                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                        FontSize="16"
+                        HeightRequest="100"
+                        Keyboard="Text"
+                        Placeholder="Descripción"
+                        PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                        Text="{Binding Description}"
+                        TextColor="{x:StaticResource ColorBlack}">
+                        <Editor.Effects>
+                            <efect:UnderlineEntryEffect />
+                        </Editor.Effects>
+                    </Editor>
+                </Border>
+                <Button
+                    BackgroundColor="{x:StaticResource ColorText}"
+                    Command="{Binding UpdateCompanyCommand}"
+                    CornerRadius="5"
+                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                    FontSize="16"
+                    HeightRequest="60"
+                    Text="Actualizar Barbería"
+                    TextColor="{x:StaticResource ColorWhite}"
+                    VerticalOptions="End" />
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

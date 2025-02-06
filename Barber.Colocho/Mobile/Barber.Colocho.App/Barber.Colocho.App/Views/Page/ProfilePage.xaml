@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Barber.Colocho.App.Views.Page.ProfilePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:font="clr-namespace:Barber.Colocho.App.Helpers"
+    xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+    Title="Perfil"
+    IconImageSource="profile_icon.svg"
+    NavigationPage.HasNavigationBar="False"
+    Style="{x:StaticResource BackgroundPage}">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource ColorWhite}" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <ScrollView
+        Orientation="Vertical"
+        VerticalOptions="FillAndExpand"
+        VerticalScrollBarVisibility="Never">
+        <Grid
+            HorizontalOptions="FillAndExpand"
+            RowDefinitions="250,*"
+            VerticalOptions="FillAndExpand">
+            <Grid Grid.Row="0" BackgroundColor="Transparent">
+                <Image
+                    Aspect="AspectFill"
+                    HeightRequest="200"
+                    Source="{Binding CompanyImage}"
+                    VerticalOptions="StartAndExpand" />
+                <Border
+                    Margin="0"
+                    Padding="0"
+                    BackgroundColor="{x:StaticResource ColorDimGray}"
+                    HeightRequest="150"
+                    HorizontalOptions="Center"
+                    Stroke="{x:StaticResource ColorWhite}"
+                    StrokeThickness="5"
+                    VerticalOptions="End"
+                    WidthRequest="150">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="75" />
+                    </Border.StrokeShape>
+                    <Image
+                        Aspect="AspectFill"
+                        HeightRequest="150"
+                        Source="{Binding UserImage}"
+                        VerticalOptions="StartAndExpand"
+                        WidthRequest="150" />
+                </Border>
+            </Grid>
+            <StackLayout Grid.Row="1">
+                <StackLayout>
+                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                                    FontSize="16"
+                                    Text="{Binding Name}"
+                                    TextColor="{x:StaticResource ColorBlack}" />
+                                <Span
+                                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                                    FontSize="16"
+                                    Text=" "
+                                    TextColor="{x:StaticResource ColorBlack}" />
+                                <Span
+                                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                                    FontSize="16"
+                                    Text="{Binding LastName}"
+                                    TextColor="{x:StaticResource ColorBlack}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <Grid
+                    Padding="20,15,10,15"
+                    ColumnDefinitions="Auto,*,Auto"
+                    ColumnSpacing="10">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding EditProfileCommand}" NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                    <Image
+                        Grid.Column="0"
+                        HeightRequest="25"
+                        VerticalOptions="Center"
+                        WidthRequest="25">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="{x:Static font:FontAwesome.ProThin}"
+                                Glyph="{x:Static font:FontAwesome.User}"
+                                Size="25"
+                                Color="{x:StaticResource ColorBlack}" />
+                        </Image.Source>
+                    </Image>
+                    <Label
+                        Grid.Column="1"
+                        FontFamily="{x:Static font:FontAwesome.RobotoMedium}"
+                        FontSize="16"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        Text="Mi Perfil"
+                        TextColor="{x:StaticResource ColorBlack}"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+                    <Image
+                        Grid.Column="2"
+                        HeightRequest="25"
+                        VerticalOptions="Center"
+                        WidthRequest="25">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="{x:Static font:FontAwesome.ProThin}"
+                                Glyph="{x:Static font:FontAwesome.Arrow_Right}"
+                                Size="25"
+                                Color="{x:StaticResource ColorBlack}" />
+                        </Image.Source>
+                    </Image>
+                </Grid>
+                <Grid
+                    Padding="20,15,10,15"
+                    ColumnDefinitions="Auto,*,Auto"
+                    ColumnSpacing="10">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AddAddressCommand}" NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                    <Image
+                        Grid.Column="0"
+                        HeightRequest="25"
+                        VerticalOptions="Center"
+                        WidthRequest="25">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="{x:Static font:FontAwesome.ProThin}"
+                                Glyph="{x:Static font:FontAwesome.Address}"
+                                Size="25"
+                                Color="{x:StaticResource ColorBlack}" />
+                        </Image.Source>
+                    </Image>
+                    <Label
+                        Grid.Column="1"
+                        FontFamily="{x:Static font:FontAwesome.RobotoMedium}"
+                        FontSize="16"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        Text="Mis direcciones"
+                        TextColor="{x:StaticResource ColorBlack}"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+                    <Image
+                        Grid.Column="2"
+                        HeightRequest="25"
+                        VerticalOptions="Center"
+                        WidthRequest="25">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="{x:Static font:FontAwesome.ProThin}"
+                                Glyph="{x:Static font:FontAwesome.Arrow_Right}"
+                                Size="25"
+                                Color="{x:StaticResource ColorBlack}" />
+                        </Image.Source>
+                    </Image>
+                </Grid>
+                <Grid
+                    Padding="20,15,10,15"
+                    ColumnDefinitions="Auto,*,Auto"
+                    ColumnSpacing="10">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ListCompanyCommand}" NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                    <Image
+                        Grid.Column="0"
+                        HeightRequest="25"
+                        VerticalOptions="Center"
+                        WidthRequest="25">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="{x:Static font:FontAwesome.ProThin}"
+                                Glyph="{x:Static font:FontAwesome.Socio}"
+                                Size="25"
+                                Color="{x:StaticResource ColorBlack}" />
+                        </Image.Source>
+                    </Image>
+                    <Label
+                        Grid.Column="1"
+                        FontFamily="{x:Static font:FontAwesome.RobotoMedium}"
+                        FontSize="16"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        Text="Mi Membresía"
+                        TextColor="{x:StaticResource ColorBlack}"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+                    <Image
+                        Grid.Column="2"
+                        HeightRequest="25"
+                        VerticalOptions="Center"
+                        WidthRequest="25">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="{x:Static font:FontAwesome.ProThin}"
+                                Glyph="{x:Static font:FontAwesome.Arrow_Right}"
+                                Size="25"
+                                Color="{x:StaticResource ColorBlack}" />
+                        </Image.Source>
+                    </Image>
+                </Grid>
+                <Grid
+                    Padding="20,15,10,15"
+                    ColumnDefinitions="Auto,*,Auto"
+                    ColumnSpacing="10">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LogOutCommand}" NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                    <Image
+                        Grid.Column="0"
+                        HeightRequest="25"
+                        VerticalOptions="Center"
+                        WidthRequest="25">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="{x:Static font:FontAwesome.ProThin}"
+                                Glyph="{x:Static font:FontAwesome.LogOut}"
+                                Size="25"
+                                Color="{x:StaticResource ColorBlack}" />
+                        </Image.Source>
+                    </Image>
+                    <Label
+                        Grid.Column="1"
+                        FontFamily="{x:Static font:FontAwesome.RobotoMedium}"
+                        FontSize="16"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        Text="Cerrar Sesión"
+                        TextColor="{x:StaticResource ColorBlack}"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+                    <Image
+                        Grid.Column="2"
+                        HeightRequest="25"
+                        VerticalOptions="Center"
+                        WidthRequest="25">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="{x:Static font:FontAwesome.ProThin}"
+                                Glyph="{x:Static font:FontAwesome.Arrow_Right}"
+                                Size="25"
+                                Color="{x:StaticResource ColorBlack}" />
+                        </Image.Source>
+                    </Image>
+                </Grid>
+                <Grid
+                    Padding="20,15,10,15"
+                    ColumnDefinitions="Auto,*,Auto"
+                    ColumnSpacing="10">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding DeleteAccountCommand}" NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                    <Image
+                        Grid.Column="0"
+                        HeightRequest="25"
+                        VerticalOptions="Center"
+                        WidthRequest="25">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="{x:Static font:FontAwesome.ProThin}"
+                                Glyph="{x:Static font:FontAwesome.DeleteAccount}"
+                                Size="25"
+                                Color="{x:StaticResource ColorBlack}" />
+                        </Image.Source>
+                    </Image>
+                    <Label
+                        Grid.Column="1"
+                        FontFamily="{x:Static font:FontAwesome.RobotoMedium}"
+                        FontSize="16"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        Text="Eliminar cuenta"
+                        TextColor="{x:StaticResource ColorBlack}"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center" />
+                    <Image
+                        Grid.Column="2"
+                        HeightRequest="25"
+                        VerticalOptions="Center"
+                        WidthRequest="25">
+                        <Image.Source>
+                            <FontImageSource
+                                FontFamily="{x:Static font:FontAwesome.ProThin}"
+                                Glyph="{x:Static font:FontAwesome.Arrow_Right}"
+                                Size="25"
+                                Color="{x:StaticResource ColorBlack}" />
+                        </Image.Source>
+                    </Image>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

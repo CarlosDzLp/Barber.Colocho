@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Barber.Colocho.App.Views.Page.Profile.DeleteAccountPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Barber.Colocho.App.Controls"
+    xmlns:font="clr-namespace:Barber.Colocho.App.Helpers"
+    xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+    Title="DeleteAccountPage"
+    IconImageSource="profile_icon.svg"
+    NavigationPage.HasNavigationBar="False"
+    Style="{x:StaticResource BackgroundPage}">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource ColorWhite}" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <Grid RowDefinitions="Auto,*">
+        <controls:ToolBarView
+            Title="Eliminar Cuenta"
+            Grid.Row="0"
+            IsVisibleTitle="True" />
+        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout Padding="20,0,20,20" Spacing="20">
+                <Label
+                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                    FontSize="35"
+                    HorizontalTextAlignment="Start"
+                    Text="Confirmación de Eliminación de Cuenta"
+                    TextColor="{x:StaticResource ColorBlack}" />
+                <Label
+                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                    FontSize="25"
+                    HorizontalTextAlignment="Center"
+                    Text="¿Estás seguro de que deseas eliminar tu cuenta?"
+                    TextColor="{x:StaticResource ColorBlack}" />
+                <skia:SKLottieView
+                    HeightRequest="100"
+                    RepeatCount="-1"
+                    RepeatMode="Reverse"
+                    Source="deleteaccount.json"
+                    WidthRequest="100" />
+                <Label
+                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                    FontSize="18"
+                    HorizontalTextAlignment="Start"
+                    Text="Al eliminar tu cuenta, perderás acceso a todos los servicios y datos asociados a la misma, incluyendo:"
+                    TextColor="{x:StaticResource ColorBlack}" />
+                <Label
+                    FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                    FontSize="16"
+                    HorizontalTextAlignment="Start"
+                    Text="1.- Acceso a tu perfil y configuraciones."
+                    TextColor="{x:StaticResource ColorBlack}" />
+                <Label
+                    FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                    FontSize="16"
+                    HorizontalTextAlignment="Start"
+                    Text="2.- Historial de actividad, mensajes o cualquier información relacionada."
+                    TextColor="{x:StaticResource ColorBlack}" />
+                <Label
+                    FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                    FontSize="16"
+                    HorizontalTextAlignment="Start"
+                    Text="3.- No podrás recuperar tu cuenta ni los datos asociados una vez que se haya completado el proceso."
+                    TextColor="{x:StaticResource ColorBlack}" />
+                <Label
+                    FontFamily="{x:Static font:FontAwesome.RobotoMedium}"
+                    FontSize="18"
+                    HorizontalTextAlignment="Start"
+                    Text="Este proceso es irreversible, y no podrás restaurar tu cuenta ni recuperar tu información.  Si decides continuar, tu cuenta será eliminada permanentemente. Si no estás seguro, puedes optar por regresar."
+                    TextColor="{x:StaticResource ColorBlack}"
+                    TextType="Text" />
+                <Button
+                    BackgroundColor="{x:StaticResource ColorText}"
+                    Clicked="Button_Clicked"
+                    CornerRadius="30"
+                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                    FontSize="16"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding IsBussy}"
+                    Text="Eliminar Cuenta"
+                    TextColor="{x:StaticResource ColorWhite}"
+                    WidthRequest="200" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

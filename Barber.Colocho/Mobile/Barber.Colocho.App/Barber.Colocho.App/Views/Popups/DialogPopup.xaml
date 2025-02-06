@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="Barber.Colocho.App.Views.Popups.DialogPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+    xmlns:font="clr-namespace:Barber.Colocho.App.Helpers"
+    xmlns:pages="clr-namespace:Mopups.Pages;assembly=Mopups"
+    xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+    Title="DialogPopup"
+    BackgroundColor="#80808080"
+    CloseWhenBackgroundIsClicked="False"
+    HeightRequest="300">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="200"
+            PositionIn="Bottom"
+            PositionOut="Right"
+            ScaleIn="2"
+            ScaleOut="0.5" />
+    </pages:PopupPage.Animation>
+    <Border
+        Margin="30,0"
+        Padding="10"
+        BackgroundColor="{x:StaticResource ColorWhite}"
+        HeightRequest="340"
+        HorizontalOptions="Center"
+        Stroke="{x:StaticResource ColorWhite}"
+        StrokeThickness="1"
+        VerticalOptions="Center">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="20" />
+        </Border.StrokeShape>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout>
+                <Grid RowDefinitions="Auto,Auto">
+                    <StackLayout Grid.Row="0" Padding="0,20">
+                        <Image
+                            x:Name="skiaLottieView"
+                            HeightRequest="100"
+                            WidthRequest="100" />
+                        <Label
+                            x:Name="lbltitle"
+                            Margin="20,0"
+                            FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                            FontSize="30"
+                            HorizontalTextAlignment="Center"
+                            TextColor="{x:StaticResource ColorBlack}" />
+                        <Label
+                            x:Name="lblsubtitle"
+                            Margin="20,0"
+                            FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                            FontSize="18"
+                            HorizontalTextAlignment="Center"
+                            TextColor="{x:StaticResource ColorBlack}" />
+                    </StackLayout>
+                    <Button
+                        x:Name="btnsuccess"
+                        Grid.Row="1"
+                        BackgroundColor="{x:StaticResource ColorText}"
+                        Clicked="Button_Clicked_1"
+                        CornerRadius="30"
+                        FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                        FontSize="16"
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        Text="Aceptar"
+                        TextColor="{x:StaticResource ColorWhite}"
+                        VerticalOptions="Center"
+                        WidthRequest="200" />
+                    <Button
+                        x:Name="btnerror"
+                        Grid.Row="1"
+                        BackgroundColor="{x:StaticResource ColorWhite}"
+                        BorderColor="{x:StaticResource ColorGray}"
+                        BorderWidth="2"
+                        Clicked="Button_Clicked_1"
+                        CornerRadius="30"
+                        FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                        FontSize="16"
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        Text="Aceptar"
+                        TextColor="{x:StaticResource ColorDimBlack}"
+                        VerticalOptions="Center"
+                        WidthRequest="200" />
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Border>
+</pages:PopupPage>

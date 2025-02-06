@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Barber.Colocho.App.Views.Page.ExplorePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:font="clr-namespace:Barber.Colocho.App.Helpers"
+    xmlns:maps="clr-namespace:Maui.GoogleMaps;assembly=Maui.GoogleMaps"
+    xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+    Title="Explorar"
+    IconImageSource="explore_icon.svg"
+    NavigationPage.HasNavigationBar="False"
+    Style="{x:StaticResource BackgroundPage}">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource ColorWhite}" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <Grid>
+        <maps:Map
+            x:Name="mapExplore"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand" />
+        <Grid
+            Padding="15,0"
+            BackgroundColor="{x:StaticResource ColorWhite}"
+            ColumnDefinitions="Auto,*,Auto"
+            ColumnSpacing="10"
+            HeightRequest="60"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="StartAndExpand">
+            <Border
+                Grid.Column="0"
+                BackgroundColor="{x:StaticResource ColorText}"
+                HeightRequest="50"
+                HorizontalOptions="Center"
+                Stroke="{x:StaticResource ColorText}"
+                StrokeThickness="1"
+                VerticalOptions="Center"
+                WidthRequest="50">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25" />
+                </Border.StrokeShape>
+                <Image HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image.Source>
+                        <FontImageSource
+                            FontFamily="{x:Static font:FontAwesome.ProLight}"
+                            Glyph="{x:Static font:FontAwesome.Pin}"
+                            Size="25"
+                            Color="{x:StaticResource ColorWhite}" />
+                    </Image.Source>
+                </Image>
+            </Border>
+            <StackLayout
+                Grid.Column="1"
+                HorizontalOptions="Start"
+                VerticalOptions="Center">
+                <Label
+                    FontFamily="{x:Static font:FontAwesome.RobotoMedium}"
+                    FontSize="14"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Start"
+                    Text="{Binding Location}"
+                    TextColor="{x:StaticResource ColorBlack}" />
+            </StackLayout>
+            <Image
+                Grid.Column="2"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding FilterCommand}" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="{x:Static font:FontAwesome.ProSolid}"
+                        Glyph="{x:Static font:FontAwesome.Filter}"
+                        Size="25"
+                        Color="{x:StaticResource ColorText}" />
+                </Image.Source>
+            </Image>
+        </Grid>
+        <Image
+            HeightRequest="50"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            WidthRequest="50"
+            ZIndex="10">
+            <Image.Source>
+                <FontImageSource
+                    FontFamily="{x:Static font:FontAwesome.ProSolid}"
+                    Glyph="{x:Static font:FontAwesome.Pin}"
+                    Size="50"
+                    Color="{x:StaticResource ColorText}" />
+            </Image.Source>
+        </Image>
+    </Grid>
+</ContentPage>

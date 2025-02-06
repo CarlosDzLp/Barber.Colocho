@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="Barber.Colocho.App.Controls.ToolBarView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:font="clr-namespace:Barber.Colocho.App.Helpers"
+    xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui">
+    <Grid
+        Margin="0"
+        Padding="20,0"
+        BackgroundColor="{x:StaticResource ColorWhite}"
+        ColumnDefinitions="Auto,*,Auto"
+        HeightRequest="60">
+        <Border
+            Grid.Column="0"
+            Padding="0,15"
+            HeightRequest="50"
+            HorizontalOptions="Center"
+            Stroke="{x:StaticResource ColorWhite}"
+            StrokeThickness="1"
+            VerticalOptions="Center">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+            </Border.GestureRecognizers>
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+            <Image HeightRequest="25" WidthRequest="25">
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="{x:Static font:FontAwesome.ProSolid}"
+                        Glyph="{x:Static font:FontAwesome.Arrow_Left}"
+                        Color="{x:StaticResource ColorBlack}" />
+                </Image.Source>
+            </Image>
+        </Border>
+        <StackLayout
+            Grid.Column="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            <Label
+                x:Name="lbltitle"
+                FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                FontSize="20"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                TextColor="{x:StaticResource ColorBlack}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+        </StackLayout>
+        <Border
+            Grid.Column="2"
+            Padding="0,15"
+            HeightRequest="50"
+            HorizontalOptions="Center"
+            Stroke="{x:StaticResource ColorWhite}"
+            StrokeThickness="1"
+            VerticalOptions="Center">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="8" />
+            </Border.StrokeShape>
+            <Image HeightRequest="25" WidthRequest="25">
+                <Image.Source>
+                    <FontImageSource
+                        FontFamily="{x:Static font:FontAwesome.ProSolid}"
+                        Glyph="{x:Static font:FontAwesome.Arrow_Left}"
+                        Color="{x:StaticResource ColorWhite}" />
+                </Image.Source>
+            </Image>
+        </Border>
+    </Grid>
+</ContentView>

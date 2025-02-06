@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Barber.Colocho.App.Views.Page.Company.CompanyDetailPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Barber.Colocho.App.Controls"
+    xmlns:efect="clr-namespace:Barber.Colocho.App.Effects"
+    xmlns:font="clr-namespace:Barber.Colocho.App.Helpers"
+    xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+    Title="CompanyDetailPage"
+    BackgroundColor="{x:StaticResource ColorDimGray}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource ColorWhite}" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <Grid RowDefinitions="Auto,*">
+        <controls:ToolBarView
+            Title="{Binding Company.Name}"
+            Grid.Row="0"
+            IsVisibleTitle="True" />
+        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout>
+                <Grid>
+                    <CarouselView IndicatorView="indicatorView" ItemsSource="{Binding ListImage}">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Image
+                                        Aspect="AspectFill"
+                                        HeightRequest="250"
+                                        Source="{Binding Name}" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView
+                        x:Name="indicatorView"
+                        Margin="0,0,0,10"
+                        HorizontalOptions="Center"
+                        IndicatorColor="{x:StaticResource ColorBlack}"
+                        IndicatorsShape="Square"
+                        SelectedIndicatorColor="{x:StaticResource ColorText}"
+                        VerticalOptions="End" />
+                </Grid>
+                <Border
+                    Margin="20,10"
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorWhite}"
+                    Stroke="{x:StaticResource ColorWhite}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="10">
+                        <controls:RatingView
+                            Margin="20,10,10,0"
+                            AccentColor="{x:StaticResource ColorText}"
+                            Amount="5"
+                            CurrentValue="{Binding Company.Rating}"
+                            HorizontalOptions="End"
+                            StarSize="25" />
+                        <Label HorizontalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="30"
+                                        Text="{Binding Company.Name}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                        FontSize="18"
+                                        Text="RFC:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="16"
+                                        Text="{Binding Company.RFC}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                        FontSize="18"
+                                        Text="Suscrito:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="16"
+                                        Text="{Binding Suscribe}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <VerticalStackLayout>
+                            <Label
+                                FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                FontSize="16"
+                                HorizontalOptions="Start"
+                                Text="Descripción"
+                                TextColor="{x:StaticResource ColorBlack}" />
+                            <Label
+                                Padding="10"
+                                BackgroundColor="{x:StaticResource ColorPlaceholder}"
+                                FontFamily="{x:Static font:FontAwesome.RobotoLight}"
+                                FontSize="16"
+                                HorizontalOptions="Start"
+                                Text="{Binding Company.Description}"
+                                TextColor="{x:StaticResource ColorBlack}" />
+                        </VerticalStackLayout>
+                        <Label HorizontalOptions="End">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="14"
+                                        Text="F. Creación:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="14"
+                                        Text="{Binding Company.Created}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </VerticalStackLayout>
+                </Border>
+                <Button
+                    Margin="20,10"
+                    BackgroundColor="{x:StaticResource ColorText}"
+                    Command="{Binding SuscriptionCommand}"
+                    CornerRadius="30"
+                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                    FontSize="16"
+                    HeightRequest="60"
+                    IsVisible="{Binding IsVisibleSuscription}"
+                    Text="Suscribirme"
+                    TextColor="{x:StaticResource ColorWhite}" />
+                <Border
+                    Margin="20,10"
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorWhite}"
+                    IsVisible="{Binding IsVisibleContentSuscripcion}"
+                    Stroke="{x:StaticResource ColorWhite}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="10">
+                        <Label HorizontalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="30"
+                                        Text="Suscripción"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                        FontSize="18"
+                                        Text="Plan:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="16"
+                                        Text="{Binding Suscription.PlanName}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                        FontSize="18"
+                                        Text="Precio:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="16"
+                                        Text="{Binding Suscription.Price, StringFormat='${0}'}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                        FontSize="18"
+                                        Text="F. Inicio:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="16"
+                                        Text="{Binding Suscription.InitSuscription}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                        FontSize="18"
+                                        Text="F. Fin:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="16"
+                                        Text="{Binding Suscription.FinishSuscription}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="End">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="14"
+                                        Text="F. Creación"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="14"
+                                        Text="{Binding Suscription.Created}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </VerticalStackLayout>
+                </Border>
+                <Border
+                    Margin="20,10"
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorWhite}"
+                    Stroke="{x:StaticResource ColorWhite}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="10">
+                        <Label HorizontalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="30"
+                                        Text="Dirección"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Border
+                            Margin="0"
+                            Padding="0"
+                            BackgroundColor="{x:StaticResource ColorWhite}"
+                            Stroke="{x:StaticResource ColorWhite}"
+                            StrokeThickness="1">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+                            <controls:StaticMap
+                                x:Name="map"
+                                Aspect="AspectFill"
+                                HeightRequest="250"
+                                HorizontalOptions="FillAndExpand"
+                                IsVisible="true"
+                                Pins="{Binding Pins}"
+                                VerticalOptions="FillAndExpand"
+                                Zoom="16" />
+                        </Border>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                        FontSize="18"
+                                        Text="Nombre:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="16"
+                                        Text="{Binding Address.Name}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                        FontSize="18"
+                                        Text="Calle:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="16"
+                                        Text="{Binding Address.Street}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                        FontSize="18"
+                                        Text="N. Ext:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="16"
+                                        Text="{Binding Address.NumExt}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                        FontSize="18"
+                                        Text="Colonia:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="16"
+                                        Text="{Binding Address.ColonyName}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                        FontSize="18"
+                                        Text="Cp:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="16"
+                                        Text="{Binding Address.CodePostal}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                        FontSize="18"
+                                        Text="Ciudad:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="16"
+                                        Text="{Binding Address.CityName}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoBlack}"
+                                        FontSize="18"
+                                        Text="Estado:"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                    <Span Text=" " />
+                                    <Span
+                                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                                        FontSize="16"
+                                        Text="{Binding Address.StateName}"
+                                        TextColor="{x:StaticResource ColorBlack}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </VerticalStackLayout>
+                </Border>
+                <Button
+                    Margin="20,10"
+                    BackgroundColor="{x:StaticResource ColorText}"
+                    Command="{Binding SuscriptionCommand}"
+                    CornerRadius="30"
+                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                    FontSize="16"
+                    HeightRequest="60"
+                    IsVisible="{Binding IsVisibleSuscription}"
+                    Text="Suscribirme"
+                    TextColor="{x:StaticResource ColorWhite}" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

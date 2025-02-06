@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Barber.Colocho.App.Views.Page.Address.AddAddressPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Barber.Colocho.App.Controls"
+    xmlns:efect="clr-namespace:Barber.Colocho.App.Effects"
+    xmlns:font="clr-namespace:Barber.Colocho.App.Helpers"
+    xmlns:swi="clr-namespace:IeuanWalker.Maui.Switch;assembly=IeuanWalker.Maui.Switch"
+    xmlns:switch="clr-namespace:IeuanWalker.Maui.Switch;assembly=IeuanWalker.Maui.Switch"
+    xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+    Title="AddAddressPage"
+    NavigationPage.HasNavigationBar="False"
+    Style="{x:StaticResource BackgroundPage}">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource ColorWhite}" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <Grid RowDefinitions="Auto,*,Auto">
+        <controls:ToolBarView
+            Title="Nueva Dirección"
+            Grid.Row="0"
+            IsVisibleTitle="True" />
+        <ScrollView
+            Grid.Row="1"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Vertical"
+            VerticalOptions="FillAndExpand"
+            VerticalScrollBarVisibility="Never">
+            <StackLayout
+                Margin="20"
+                HorizontalOptions="FillAndExpand"
+                Spacing="20"
+                VerticalOptions="FillAndExpand">
+                <Grid>
+                    <Border
+                        Margin="0"
+                        Padding="0"
+                        BackgroundColor="{x:StaticResource ColorWhite}"
+                        Stroke="{x:StaticResource ColorWhite}"
+                        StrokeThickness="1">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+                        <controls:StaticMap
+                            x:Name="map"
+                            Aspect="AspectFill"
+                            HeightRequest="250"
+                            HorizontalOptions="FillAndExpand"
+                            IsVisible="true"
+                            Pins="{Binding Pins}"
+                            VerticalOptions="FillAndExpand"
+                            Zoom="16" />
+                    </Border>
+                    <Border
+                        Margin="0,0,0,10"
+                        Padding="15,10"
+                        BackgroundColor="{x:StaticResource ColorWhite}"
+                        HorizontalOptions="Center"
+                        Stroke="{x:StaticResource ColorWhite}"
+                        StrokeThickness="1"
+                        VerticalOptions="End">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15" />
+                        </Border.StrokeShape>
+                        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="End">
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ChangeLocationCommand}" NumberOfTapsRequired="1" />
+                            </HorizontalStackLayout.GestureRecognizers>
+                            <Label
+                                FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                                FontSize="12"
+                                HorizontalTextAlignment="Start"
+                                Text="Cambiar Ubicación"
+                                TextColor="{x:StaticResource ColorBlack}"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center" />
+                        </HorizontalStackLayout>
+                    </Border>
+                </Grid>
+
+                <Border
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorDimGray}"
+                    Stroke="{x:StaticResource ColorDimGray}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Entry
+                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                        FontSize="16"
+                        Keyboard="Text"
+                        Placeholder="Nombre"
+                        PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                        Text="{Binding Name}"
+                        TextColor="{x:StaticResource ColorBlack}">
+                        <Entry.Effects>
+                            <efect:UnderlineEntryEffect />
+                        </Entry.Effects>
+                    </Entry>
+                </Border>
+                <Border
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorDimGray}"
+                    Stroke="{x:StaticResource ColorDimGray}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Entry
+                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                        FontSize="16"
+                        Keyboard="Text"
+                        Placeholder="Calle"
+                        PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                        Text="{Binding Street}"
+                        TextColor="{x:StaticResource ColorBlack}">
+                        <Entry.Effects>
+                            <efect:UnderlineEntryEffect />
+                        </Entry.Effects>
+                    </Entry>
+                </Border>
+                <Border
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorDimGray}"
+                    Stroke="{x:StaticResource ColorDimGray}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Entry
+                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                        FontSize="16"
+                        Keyboard="Text"
+                        Placeholder="Núm Exterior"
+                        PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                        Text="{Binding NumExt}"
+                        TextColor="{x:StaticResource ColorBlack}">
+                        <Entry.Effects>
+                            <efect:UnderlineEntryEffect />
+                        </Entry.Effects>
+                    </Entry>
+                </Border>
+                <Border
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorDimGray}"
+                    Stroke="{x:StaticResource ColorDimGray}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Entry
+                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                        FontSize="16"
+                        Keyboard="Numeric"
+                        Placeholder="Código Postal"
+                        PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                        Text="{Binding CodePostal}"
+                        TextColor="{x:StaticResource ColorBlack}"
+                        Unfocused="Entry_Unfocused">
+                        <Entry.Effects>
+                            <efect:UnderlineEntryEffect />
+                        </Entry.Effects>
+                    </Entry>
+                </Border>
+                <Border
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorDimGray}"
+                    Stroke="{x:StaticResource ColorDimGray}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Entry
+                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                        FontSize="16"
+                        IsReadOnly="True"
+                        Keyboard="Text"
+                        Placeholder="Estado"
+                        PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                        Text="{Binding State}"
+                        TextColor="{x:StaticResource ColorBlack}">
+                        <Entry.Effects>
+                            <efect:UnderlineEntryEffect />
+                        </Entry.Effects>
+                    </Entry>
+                </Border>
+                <Border
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorDimGray}"
+                    Stroke="{x:StaticResource ColorDimGray}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Entry
+                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                        FontSize="16"
+                        IsReadOnly="True"
+                        Keyboard="Text"
+                        Placeholder="Ciudad"
+                        PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                        Text="{Binding City}"
+                        TextColor="{x:StaticResource ColorBlack}">
+                        <Entry.Effects>
+                            <efect:UnderlineEntryEffect />
+                        </Entry.Effects>
+                    </Entry>
+                </Border>
+                <Border
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorDimGray}"
+                    Stroke="{x:StaticResource ColorDimGray}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Grid Grid.Column="1" ColumnDefinitions="*,Auto">
+                        <Picker
+                            Title="Seleccione una colonia"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="{x:StaticResource ColorWhite}"
+                            FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                            FontSize="16"
+                            ItemDisplayBinding="{Binding Name}"
+                            ItemsSource="{Binding ListColony}"
+                            SelectedIndexChanged="Picker_SelectedIndexChanged"
+                            TextColor="{x:StaticResource ColorBlack}"
+                            TitleColor="{x:StaticResource ColorPlaceholder}">
+                            <Picker.Effects>
+                                <efect:UnderlineEntryEffect />
+                            </Picker.Effects>
+                        </Picker>
+                        <Image
+                            Grid.Column="1"
+                            BackgroundColor="Transparent"
+                            HeightRequest="25"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            WidthRequest="25">
+                            <Image.Source>
+                                <FontImageSource
+                                    FontFamily="{x:Static font:FontAwesome.ProLight}"
+                                    Glyph="{x:Static font:FontAwesome.Arrow_Bottom}"
+                                    Size="25"
+                                    Color="{x:StaticResource ColorBlack}" />
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                </Border>
+                <Border
+                    Padding="10,5"
+                    BackgroundColor="{x:StaticResource ColorDimGray}"
+                    Stroke="{x:StaticResource ColorDimGray}"
+                    StrokeThickness="1">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="5" />
+                    </Border.StrokeShape>
+                    <Editor
+                        FontFamily="{x:Static font:FontAwesome.RobotoRegular}"
+                        FontSize="16"
+                        HeightRequest="100"
+                        Keyboard="Text"
+                        Placeholder="Observaciones"
+                        PlaceholderColor="{x:StaticResource ColorPlaceholder}"
+                        Text="{Binding Observations}"
+                        TextColor="{x:StaticResource ColorBlack}">
+                        <Editor.Effects>
+                            <efect:UnderlineEntryEffect />
+                        </Editor.Effects>
+                    </Editor>
+                </Border>
+                <switch:CustomSwitch
+                    x:Name="switchcontrol"
+                    BackgroundColor="{x:StaticResource ColorBlack}"
+                    HeightRequest="20"
+                    HorizontalOptions="End"
+                    IsToggled="{Binding IsDefault}"
+                    KnobBackgroundColor="{x:StaticResource ColorText}"
+                    KnobHeight="30"
+                    KnobLimit="Boundary"
+                    KnobWidth="30"
+                    VerticalOptions="Center"
+                    WidthRequest="60">
+                    <switch:CustomSwitch.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </switch:CustomSwitch.StrokeShape>
+                    <switch:CustomSwitch.KnobStrokeShape>
+                        <RoundRectangle CornerRadius="15" />
+                    </switch:CustomSwitch.KnobStrokeShape>
+                </switch:CustomSwitch>
+            </StackLayout>
+        </ScrollView>
+        <Button
+            Grid.Row="2"
+            BackgroundColor="{x:StaticResource ColorText}"
+            Command="{Binding AddAddressCommand}"
+            CornerRadius="0"
+            FontFamily="{x:Static font:FontAwesome.RobotoMedium}"
+            FontSize="18"
+            HeightRequest="60"
+            Text="Nueva Dirección"
+            TextColor="{x:StaticResource ColorWhite}" />
+    </Grid>
+</ContentPage>

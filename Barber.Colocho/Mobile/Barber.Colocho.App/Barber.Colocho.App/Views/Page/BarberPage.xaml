@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<controls:CustomTabbedPage
+    x:Class="Barber.Colocho.App.Views.Page.BarberPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:controls="clr-namespace:Barber.Colocho.App.Controls"
+    xmlns:page="clr-namespace:Barber.Colocho.App.Views.Page"
+    Title="BarberPage"
+    android:TabbedPage.IsSwipePagingEnabled="True"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    BarBackgroundColor="{x:StaticResource ColorWhite}"
+    BarTextColor="{x:StaticResource ColorText}"
+    SelectedTabColor="{x:StaticResource ColorText}"
+    Style="{x:StaticResource BackgroundPage}"
+    UnselectedTabColor="{x:StaticResource ColorBlack}">
+    <controls:CustomTabbedPage.Children>
+        <page:HomePage />
+        <page:ExplorePage />
+        <page:CalendarPage />
+        <page:ProfilePage />
+    </controls:CustomTabbedPage.Children>
+</controls:CustomTabbedPage>

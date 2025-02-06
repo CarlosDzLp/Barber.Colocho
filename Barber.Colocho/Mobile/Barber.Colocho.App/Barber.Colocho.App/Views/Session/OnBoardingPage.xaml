@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Barber.Colocho.App.Views.Session.OnBoardingPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:font="clr-namespace:Barber.Colocho.App.Helpers"
+    xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+    NavigationPage.HasNavigationBar="False"
+    Style="{x:StaticResource BackgroundPage}">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource ColorWhite}" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <ScrollView
+        Orientation="Vertical"
+        VerticalOptions="FillAndExpand"
+        VerticalScrollBarVisibility="Never">
+        <Grid>
+            <StackLayout Padding="20,30,20,10" VerticalOptions="Start">
+                <Image
+                    BackgroundColor="Transparent"
+                    HeightRequest="400"
+                    Source="login_icon.png"
+                    VerticalOptions="Start" />
+            </StackLayout>
+            <StackLayout
+                Padding="20,0,20,60"
+                Spacing="20"
+                VerticalOptions="End">
+                <Button
+                    BackgroundColor="{x:StaticResource ColorBlack}"
+                    Command="{Binding LoginCommand}"
+                    CornerRadius="5"
+                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                    FontSize="16"
+                    HeightRequest="60"
+                    Text="Iniciar Sesion"
+                    TextColor="{x:StaticResource ColorWhite}" />
+                <Button
+                    BackgroundColor="{x:StaticResource ColorWhite}"
+                    BorderColor="{x:StaticResource ColorBlack}"
+                    BorderWidth="2"
+                    Command="{Binding RegisterCommand}"
+                    CornerRadius="5"
+                    FontFamily="{x:Static font:FontAwesome.RobotoBold}"
+                    FontSize="16"
+                    HeightRequest="60"
+                    Text="Registrarse"
+                    TextColor="{x:StaticResource ColorBlack}" />
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
