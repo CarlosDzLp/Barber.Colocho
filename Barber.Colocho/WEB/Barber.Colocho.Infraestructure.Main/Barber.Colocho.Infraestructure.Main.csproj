@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Barber.Colocho.Infraestructure.Data\Barber.Colocho.Infraestructure.Data.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Infraestructure.Persistence\Barber.Colocho.Infraestructure.Persistence.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Infraestructure.Repository\Barber.Colocho.Infraestructure.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

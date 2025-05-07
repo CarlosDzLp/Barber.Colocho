@@ -1,31 +1,38 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
-    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Abstractions" Version="9.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="7.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="7.0.0" />
+    <Folder Include="Areas\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibraries\Barber.Colocho.Core\Barber.Colocho.Core.csproj" />
-    <ProjectReference Include="..\ClassLibraries\Barber.Colocho.DataAccess\Barber.Colocho.DataAccess.csproj" />
-    <ProjectReference Include="..\ClassLibraries\Barber.Colocho.Entities\Barber.Colocho.Entities.csproj" />
-    <ProjectReference Include="..\ClassLibraries\Barber.Colocho.Repository\Barber.Colocho.Repository.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Barber.Colocho.Application.Interface\Barber.Colocho.Application.Interface.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Application.Main\Barber.Colocho.Application.Main.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Domain.Core\Barber.Colocho.Domain.Core.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Infraestructure.Main\Barber.Colocho.Infraestructure.Main.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Infraestructure.Mapper\Barber.Colocho.Transversal.Mapper.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Infraestructure.Persistence\Barber.Colocho.Infraestructure.Persistence.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Infraestructure.Swagger\Barber.Colocho.Transversal.Swagger.csproj" />
   </ItemGroup>
 
 </Project>

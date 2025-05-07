@@ -50,10 +50,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\WEB\ClassLibraries\Barber.Colocho.Enums\Barber.Colocho.Enums.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="Controls\BindingPinView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Barber.Colocho.Application.Interface\Barber.Colocho.Application.Interface.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Domain.Entity\Barber.Colocho.Domain.Entity.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Domain.Interface\Barber.Colocho.Domain.Interface.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Infraestructure.Data\Barber.Colocho.Infraestructure.Data.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Infraestructure.Repository\Barber.Colocho.Infraestructure.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

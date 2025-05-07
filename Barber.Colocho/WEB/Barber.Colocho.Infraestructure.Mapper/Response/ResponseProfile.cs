@@ -1,0 +1,16 @@
+﻿using AutoMapper;
+using Barber.Colocho.Application.Interface.Response;
+using Barber.Colocho.Domain.Interface.Response;
+using Barber.Colocho.Infraestructure.Repository.Response;
+
+namespace Barber.Colocho.Transversal.Mapper.Response
+{
+    public class ResponseProfile : Profile
+    {
+        public ResponseProfile()
+        {
+            CreateMap(typeof(ResponseInfraestructure<>), typeof(ResponseDomain<>)).ReverseMap();
+            CreateMap(typeof(ResponseDomain<>), typeof(ResponseApplication<>)).ReverseMap();
+        }
+    }
+}
