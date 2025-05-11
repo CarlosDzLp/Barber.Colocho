@@ -9,6 +9,7 @@ namespace Barber.Colocho.Infraestructure.Data.Tables
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
-        public decimal VersionApi { get; set; }
+        
+        public double VersionApi { get; set; }
     }
 }

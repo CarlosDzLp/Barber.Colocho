@@ -11,19 +11,28 @@ namespace Barber.Colocho.Infraestructure.Persistence.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            Guid guid = Guid.Parse("2b921c40-7644-4b5e-b1e1-c79767fbe940");
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             modelBuilder.Entity<Data.Tables.Version>().Property(m => m.VersionApi).HasPrecision(10, 2);
             base.OnModelCreating(modelBuilder);
-            //modelBuilder.Entity<Roles>().HasData(new Entities.Tables.Roles
+            //modelBuilder.Entity<Data.Tables.Version>().HasData(new Data.Tables.Version
             //{
             //    Created = DateTime.UtcNow,
-            //    Delete = null,
-            //    Id = 1,
+            //    Deleted = null,
+            //    Id = guid,
             //    IsActive = true,
-            //    RolName = Enums.RolesEnum.User,
-            //    Updated = null
+            //    Updated = null,
+            //    VersionApi = 1.0
             //});
+            modelBuilder.Entity<Data.Tables.Geolocator>().Property(u => u.Coordinate)
+            .HasColumnType("geography");
         }
         public DbSet<Data.Tables.Version> Version { get; set; }
+        public DbSet<Data.Tables.User> User { get; set; }
+        public DbSet<Data.Tables.Geolocator> Geolocator { get; set; }
+        public DbSet<Data.Tables.Code> Code { get; set; }
+        public DbSet<Data.Tables.Password> Password { get; set; }
+        public DbSet<Data.Tables.Company> Company { get; set; }
+        public DbSet<Data.Tables.CompanyImage> CompanyImage { get; set; }
     }
 }

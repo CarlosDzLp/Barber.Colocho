@@ -12,7 +12,7 @@ namespace Barber.Colocho.Infraestructure.Persistence.Configure
             var connectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseSqlServer(connectionString);
+                options.UseSqlServer(connectionString, action => action.UseNetTopologySuite());
             });
             return services;
         }
