@@ -18,6 +18,6 @@ namespace Barber.Colocho.Infraestructure.Data.Tables
         public User User { get; set; }
 
         [Required]
-        public Point Coordinate { get; set; }
+        public Point Location { get; set; }
     }
 }

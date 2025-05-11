@@ -24,8 +24,11 @@ namespace Barber.Colocho.Infraestructure.Persistence.Context
             //    Updated = null,
             //    VersionApi = 1.0
             //});
-            modelBuilder.Entity<Data.Tables.Geolocator>().Property(u => u.Coordinate)
+            modelBuilder.Entity<Data.Tables.Geolocator>().Property(u => u.Location)
             .HasColumnType("geography");
+
+            modelBuilder.Entity<Data.Tables.CompanyAddress>().Property(u => u.Location)
+                .HasColumnType("geography");
         }
         public DbSet<Data.Tables.Version> Version { get; set; }
         public DbSet<Data.Tables.User> User { get; set; }
@@ -33,6 +36,9 @@ namespace Barber.Colocho.Infraestructure.Persistence.Context
         public DbSet<Data.Tables.Code> Code { get; set; }
         public DbSet<Data.Tables.Password> Password { get; set; }
         public DbSet<Data.Tables.Company> Company { get; set; }
+        public DbSet<Data.Tables.CompanyAddress> CompanyAddress { get; set; }
         public DbSet<Data.Tables.CompanyImage> CompanyImage { get; set; }
+        public DbSet<Data.Tables.Service> Service { get; set; }
+        public DbSet<Data.Tables.ServiceImage>  ServiceImage { get; set; }
     }
 }

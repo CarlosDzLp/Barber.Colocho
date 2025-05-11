@@ -8,6 +8,14 @@ namespace Barber.Colocho.Infraestructure.Data.Tables
     [Table("User", Schema = "dbo")]
     public class User : DefaultColumns
     {
+        public User()
+        {
+            this.Code = new HashSet<Code>();
+            this.Company = new HashSet<Company>();
+            this.Geolocator = new HashSet<Geolocator>();
+            this.Password1 = new HashSet<Password>();
+        }
+
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Required]
         public Guid Id { get; set; }
 
@@ -44,5 +52,13 @@ namespace Barber.Colocho.Infraestructure.Data.Tables
         public bool IsPhoneConfirmed { get; set; }
 
         public bool IsAccept { get; set; }
+
+        public virtual ICollection<Code> Code { get; set; }
+
+        public virtual ICollection<Company> Company { get; set; }
+        
+        public virtual ICollection<Geolocator> Geolocator { get; set; }
+        
+        public virtual ICollection<Password> Password1 { get; set; }
     }
 }

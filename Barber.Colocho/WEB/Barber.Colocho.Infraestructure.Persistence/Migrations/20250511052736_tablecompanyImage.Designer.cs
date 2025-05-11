@@ -4,6 +4,7 @@ using Barber.Colocho.Infraestructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace Barber.Colocho.Infraestructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250511052736_tablecompanyImage")]
+    partial class tablecompanyImage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,62 +100,6 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
                     b.ToTable("Company", "dbo");
                 });
 
-            modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.CompanyAddress", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CP")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Colony")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("Deleted")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("IdCompany")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<Point>("Location")
-                        .IsRequired()
-                        .HasColumnType("geography");
-
-                    b.Property<string>("Number")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Street")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("Updated")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdCompany");
-
-                    b.ToTable("CompanyAddress", "dbo");
-                });
-
             modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.CompanyImage", b =>
                 {
                     b.Property<Guid>("Id")
@@ -191,6 +138,10 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Point>("Coordinate")
+                        .IsRequired()
+                        .HasColumnType("geography");
+
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
@@ -202,10 +153,6 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
-
-                    b.Property<Point>("Location")
-                        .IsRequired()
-                        .HasColumnType("geography");
 
                     b.Property<DateTime?>("Updated")
                         .HasColumnType("datetime2");
@@ -253,74 +200,6 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Password", "dbo");
-                });
-
-            modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.Service", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("Deleted")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("IdCompany")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("Updated")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdCompany");
-
-                    b.ToTable("Service", "dbo");
-                });
-
-            modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.ServiceImage", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("Deleted")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("IdService")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Path")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("Updated")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdService");
-
-                    b.ToTable("ServiceImage", "dbo");
                 });
 
             modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.User", b =>
@@ -441,17 +320,6 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.CompanyAddress", b =>
-                {
-                    b.HasOne("Barber.Colocho.Infraestructure.Data.Tables.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("IdCompany")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Company");
-                });
-
             modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.CompanyImage", b =>
                 {
                     b.HasOne("Barber.Colocho.Infraestructure.Data.Tables.Company", "Company")
@@ -483,28 +351,6 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.Service", b =>
-                {
-                    b.HasOne("Barber.Colocho.Infraestructure.Data.Tables.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("IdCompany")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Company");
-                });
-
-            modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.ServiceImage", b =>
-                {
-                    b.HasOne("Barber.Colocho.Infraestructure.Data.Tables.Service", "Service")
-                        .WithMany()
-                        .HasForeignKey("IdService")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Service");
                 });
 #pragma warning restore 612, 618
         }
