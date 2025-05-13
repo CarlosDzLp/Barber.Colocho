@@ -11,7 +11,7 @@ namespace Barber.Colocho.Infraestructure.Data.Tables
         public Company()
         {
             this.CompanyAddress = new HashSet<CompanyAddress>();
-            this.Image = new HashSet<Image>();
+            this.CompanyImage = new HashSet<CompanyImage>();
             this.Service = new HashSet<Service>();
         }
 
