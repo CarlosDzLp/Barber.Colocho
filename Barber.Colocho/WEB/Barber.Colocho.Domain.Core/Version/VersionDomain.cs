@@ -2,6 +2,7 @@
 using Barber.Colocho.Domain.Entity.Version;
 using Barber.Colocho.Domain.Interface.Response;
 using Barber.Colocho.Domain.Interface.Version;
+using Barber.Colocho.Infraestructure.Repository.Response;
 using Barber.Colocho.Infraestructure.Repository.Version;
 
 namespace Barber.Colocho.Domain.Core.Version

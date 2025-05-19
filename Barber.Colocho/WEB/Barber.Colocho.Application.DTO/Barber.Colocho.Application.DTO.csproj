@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Barber.Colocho.Infraestructure.Common\Barber.Colocho.Transversal.Common.csproj" />
+  </ItemGroup>
+
 </Project>

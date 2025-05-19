@@ -50,6 +50,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\..\WEB\Barber.Colocho.Infraestructure.Common\Barber.Colocho.Transversal.Common.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Controls\BindingPinView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -4,6 +4,7 @@ using Barber.Colocho.Transversal.Swagger.Configure;
 using Barber.Colocho.Transversal.Mapper.Configure;
 using Barber.Colocho.Infraestructure.Persistence.Configure;
 using Barber.Colocho.Infraestructure.Main.Configure;
+using Barber.Colocho.Transversal.Resources.Configure;
 
 namespace Barber.Colocho.Web.Configure
 {
@@ -11,6 +12,7 @@ namespace Barber.Colocho.Web.Configure
     {
         public static IServiceCollection AddServiceConfigure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddTransversalResources();
             services.AddInfrastructurePersistenceService(configuration);
             services.AddApplicationService(configuration);
             services.AddDomainCoreService(configuration);

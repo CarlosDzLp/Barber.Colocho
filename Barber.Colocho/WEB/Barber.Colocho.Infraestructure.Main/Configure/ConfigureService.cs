@@ -1,6 +1,8 @@
 ﻿using Barber.Colocho.Infraestructure.Main.Repository;
+using Barber.Colocho.Infraestructure.Main.User;
 using Barber.Colocho.Infraestructure.Main.Version;
 using Barber.Colocho.Infraestructure.Repository.Repository;
+using Barber.Colocho.Infraestructure.Repository.User;
 using Barber.Colocho.Infraestructure.Repository.Version;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +15,7 @@ namespace Barber.Colocho.Infraestructure.Main.Configure
         {
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IVersionInfraestructure, VersionInfraestructure>();
+            services.AddScoped<IUserInfraestructure, UserInfraestructure>();
             return services;
         }
     }

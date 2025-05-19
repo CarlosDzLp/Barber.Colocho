@@ -13,8 +13,8 @@ using NetTopologySuite.Geometries;
 namespace Barber.Colocho.Infraestructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250511055243_tabletables")]
-    partial class tabletables
+    [Migration("20250518062442_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -373,7 +373,7 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("Pass")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -425,7 +425,7 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
             modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.Code", b =>
                 {
                     b.HasOne("Barber.Colocho.Infraestructure.Data.Tables.User", "User")
-                        .WithMany()
+                        .WithMany("Code")
                         .HasForeignKey("IdUser")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -436,7 +436,7 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
             modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.Company", b =>
                 {
                     b.HasOne("Barber.Colocho.Infraestructure.Data.Tables.User", "User")
-                        .WithMany()
+                        .WithMany("Company")
                         .HasForeignKey("IdUser")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -447,7 +447,7 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
             modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.CompanyAddress", b =>
                 {
                     b.HasOne("Barber.Colocho.Infraestructure.Data.Tables.Company", "Company")
-                        .WithMany()
+                        .WithMany("CompanyAddress")
                         .HasForeignKey("IdCompany")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -458,7 +458,7 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
             modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.CompanyImage", b =>
                 {
                     b.HasOne("Barber.Colocho.Infraestructure.Data.Tables.Company", "Company")
-                        .WithMany()
+                        .WithMany("CompanyImage")
                         .HasForeignKey("IdCompany")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -469,7 +469,7 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
             modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.Geolocator", b =>
                 {
                     b.HasOne("Barber.Colocho.Infraestructure.Data.Tables.User", "User")
-                        .WithMany()
+                        .WithMany("Geolocator")
                         .HasForeignKey("IdUser")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -480,7 +480,7 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
             modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.Password", b =>
                 {
                     b.HasOne("Barber.Colocho.Infraestructure.Data.Tables.User", "User")
-                        .WithMany()
+                        .WithMany("Password1")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -491,7 +491,7 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
             modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.Service", b =>
                 {
                     b.HasOne("Barber.Colocho.Infraestructure.Data.Tables.Company", "Company")
-                        .WithMany()
+                        .WithMany("Service")
                         .HasForeignKey("IdCompany")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -502,12 +502,37 @@ namespace Barber.Colocho.Infraestructure.Persistence.Migrations
             modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.ServiceImage", b =>
                 {
                     b.HasOne("Barber.Colocho.Infraestructure.Data.Tables.Service", "Service")
-                        .WithMany()
+                        .WithMany("ServiceImage")
                         .HasForeignKey("IdService")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Service");
+                });
+
+            modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.Company", b =>
+                {
+                    b.Navigation("CompanyAddress");
+
+                    b.Navigation("CompanyImage");
+
+                    b.Navigation("Service");
+                });
+
+            modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.Service", b =>
+                {
+                    b.Navigation("ServiceImage");
+                });
+
+            modelBuilder.Entity("Barber.Colocho.Infraestructure.Data.Tables.User", b =>
+                {
+                    b.Navigation("Code");
+
+                    b.Navigation("Company");
+
+                    b.Navigation("Geolocator");
+
+                    b.Navigation("Password1");
                 });
 #pragma warning restore 612, 618
         }

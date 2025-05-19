@@ -1,4 +1,6 @@
 ﻿using Asp.Versioning;
+using Barber.Colocho.Application.DTO.User;
+using Barber.Colocho.Application.Interface.User;
 using Barber.Colocho.Application.Main.Modules;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,12 +12,21 @@ namespace Barber.Colocho.Web.Controllers.API.V1
     [ApiVersionFilter]
     public class OAuthController : ControllerBase
     {
-        //[HttpPost("RefreshToken/Refresh")]
-        //public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenModel command)
-        //{
-        //    var result = await authenticate.RefreshToken(command);
-        //    return (result != null && result.Result != null) ? Ok(result) : BadRequest(result);
-        //}
+
+        #region Constructor
+        private readonly IUserApplication userApplication;
+        public OAuthController(IUserApplication userApplication)
+        {
+            this.userApplication = userApplication;
+        }
+        #endregion
+
+        [HttpPost("RefreshToken/Refresh")]
+        public async Task<IActionResult> RefreshToken([FromBody] UserApplicationDto command)
+        {
+            var result = await userApplication.DeleteUser(new Application.Interface.Response.RequestApplication<UserApplicationDto>() { Request = command });
+            return (result != null && result.Result != null) ? Ok(result) : BadRequest(result);
+        }
 
         //[HttpPost("Authenticate/Oauth")]
         //public async Task<IActionResult> Authenticate([FromBody] TokenModel command)

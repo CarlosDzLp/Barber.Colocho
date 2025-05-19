@@ -1,4 +1,5 @@
-﻿using Barber.Colocho.Transversal.Mapper.Response;
+﻿using Barber.Colocho.Transversal.Mapper.Mapper;
+using Barber.Colocho.Transversal.Mapper.Response;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Barber.Colocho.Transversal.Mapper.Configure
@@ -10,6 +11,8 @@ namespace Barber.Colocho.Transversal.Mapper.Configure
             services.AddAutoMapper((e) =>
             {
                 //e.AddProfile<MapperProfile>();
+                e.AddProfile<VersionProfile>();
+                e.AddProfile<UserProfile>();
                 e.AddProfile<ResponseProfile>();
             });
             return services;

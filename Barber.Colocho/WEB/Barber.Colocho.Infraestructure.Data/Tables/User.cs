@@ -35,7 +35,7 @@ namespace Barber.Colocho.Infraestructure.Data.Tables
         public string Email { get; set; }
 
         [Required]
-        public string Password { get; set; }
+        public string Pass { get; set; }
 
         public string Image {  get; set; }
 

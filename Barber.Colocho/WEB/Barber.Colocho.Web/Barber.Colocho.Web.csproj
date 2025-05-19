@@ -33,6 +33,7 @@
     <ProjectReference Include="..\Barber.Colocho.Infraestructure.Mapper\Barber.Colocho.Transversal.Mapper.csproj" />
     <ProjectReference Include="..\Barber.Colocho.Infraestructure.Persistence\Barber.Colocho.Infraestructure.Persistence.csproj" />
     <ProjectReference Include="..\Barber.Colocho.Infraestructure.Swagger\Barber.Colocho.Transversal.Swagger.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Transversal.Resources\Barber.Colocho.Transversal.Resources.csproj" />
   </ItemGroup>
 
 </Project>

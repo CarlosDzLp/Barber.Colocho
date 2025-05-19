@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Barber.Colocho.Domain.Interface\Barber.Colocho.Domain.Interface.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Infraestructure.Data\Barber.Colocho.Infraestructure.Data.csproj" />
     <ProjectReference Include="..\Barber.Colocho.Infraestructure.Repository\Barber.Colocho.Infraestructure.Repository.csproj" />
   </ItemGroup>
 
