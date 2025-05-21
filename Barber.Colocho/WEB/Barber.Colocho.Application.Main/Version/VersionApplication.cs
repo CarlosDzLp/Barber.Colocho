@@ -8,9 +8,9 @@ namespace Barber.Colocho.Application.Main.Version
 {
     public class VersionApplication : IVersionApplication
     {
+        #region Constructor
         private readonly IVersionDomain versionDomain;
         private readonly IMapper mapper;
-        #region Constructor
         public VersionApplication(IVersionDomain versionDomain, IMapper mapper)
         {
             this.versionDomain = versionDomain;

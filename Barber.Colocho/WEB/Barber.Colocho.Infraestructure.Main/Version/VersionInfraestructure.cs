@@ -6,8 +6,9 @@ namespace Barber.Colocho.Infraestructure.Main.Version
 {
     public class VersionInfraestructure : IVersionInfraestructure
     {
-        private readonly IGenericRepository<Data.Tables.Version> version;
+
         #region Constructor
+        private readonly IGenericRepository<Data.Tables.Version> version;
         public VersionInfraestructure(IGenericRepository<Data.Tables.Version> version)
         {
             this.version = version;
@@ -20,7 +21,7 @@ namespace Barber.Colocho.Infraestructure.Main.Version
             return new ResponseInfraestructure<Data.Tables.Version>
             {
                 Count = (result != null) ? 1 : 0,
-                Message = string.Empty,
+                Message = null,
                 Result = result
             };
         }

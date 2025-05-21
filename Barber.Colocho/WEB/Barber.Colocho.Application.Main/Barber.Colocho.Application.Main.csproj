@@ -8,16 +8,18 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Barber.Colocho.Application.DTO\Barber.Colocho.Application.DTO.csproj" />
     <ProjectReference Include="..\Barber.Colocho.Application.Interface\Barber.Colocho.Application.Interface.csproj" />
     <ProjectReference Include="..\Barber.Colocho.Domain.Interface\Barber.Colocho.Domain.Interface.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Transversal.Validations\Barber.Colocho.Transversal.Validations.csproj" />
   </ItemGroup>
 
 </Project>

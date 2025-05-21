@@ -37,4 +37,4 @@ app.MapControllerRoute(
    );
 
 
-app.Run();
+await app.RunAsync();

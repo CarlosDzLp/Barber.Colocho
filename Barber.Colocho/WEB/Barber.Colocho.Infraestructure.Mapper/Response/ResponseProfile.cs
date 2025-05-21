@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Barber.Colocho.Application.Interface.Response;
-using Barber.Colocho.Domain.Entity.Version;
 using Barber.Colocho.Domain.Interface.Response;
 using Barber.Colocho.Infraestructure.Repository.Response;
 

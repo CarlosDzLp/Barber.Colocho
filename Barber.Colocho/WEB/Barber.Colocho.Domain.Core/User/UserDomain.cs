@@ -4,7 +4,6 @@ using Barber.Colocho.Domain.Interface.Response;
 using Barber.Colocho.Domain.Interface.User;
 using Barber.Colocho.Infraestructure.Repository.Response;
 using Barber.Colocho.Infraestructure.Repository.User;
-using System.Data.Common;
 using System.Linq.Expressions;
 
 namespace Barber.Colocho.Domain.Core.User

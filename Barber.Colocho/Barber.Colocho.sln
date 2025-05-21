@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.Transversal.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.Transversal.Resources", "WEB\Barber.Colocho.Transversal.Resources\Barber.Colocho.Transversal.Resources.csproj", "{435BDC8F-E0CC-44EC-B28F-A9E85C39F57A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.Transversal.Validations", "WEB\Barber.Colocho.Transversal.Validations\Barber.Colocho.Transversal.Validations.csproj", "{4A8C6771-6908-4657-8B86-625CABCD973E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{435BDC8F-E0CC-44EC-B28F-A9E85C39F57A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{435BDC8F-E0CC-44EC-B28F-A9E85C39F57A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{435BDC8F-E0CC-44EC-B28F-A9E85C39F57A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A8C6771-6908-4657-8B86-625CABCD973E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A8C6771-6908-4657-8B86-625CABCD973E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A8C6771-6908-4657-8B86-625CABCD973E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A8C6771-6908-4657-8B86-625CABCD973E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -170,6 +176,7 @@ Global
 		{9C23E721-C9DA-4FE4-96DB-005D43282FDF} = {6E2E74D0-962E-4134-88C7-82A8939A6823}
 		{A6004F80-CEC7-4EF3-AAE1-F2046EE49B66} = {6E2E74D0-962E-4134-88C7-82A8939A6823}
 		{435BDC8F-E0CC-44EC-B28F-A9E85C39F57A} = {6E2E74D0-962E-4134-88C7-82A8939A6823}
+		{4A8C6771-6908-4657-8B86-625CABCD973E} = {6E2E74D0-962E-4134-88C7-82A8939A6823}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C884B179-C3DD-4491-B788-BFF70BD484D7}

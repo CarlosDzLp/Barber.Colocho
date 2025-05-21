@@ -24,7 +24,7 @@ namespace Barber.Colocho.Infraestructure.Main.User
             {
                 Result = true,
                 Count = 1,
-                Message = string.Empty
+                Message = null
             };
         }
 
@@ -35,7 +35,7 @@ namespace Barber.Colocho.Infraestructure.Main.User
             {
                 Result = userAll,
                 Count = userAll.ToList().Count,
-                Message = string.Empty
+                Message = null
             };
         }
 
