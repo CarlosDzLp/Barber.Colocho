@@ -6,14 +6,14 @@ namespace Barber.Colocho.Application.Interface.User
 {
     public interface IUserApplication
     {
-        Task<ResponseApplication<UserApplicationDto>> GetUserEmail(RequestApplication<string> request);
-        Task<ResponseApplication<UserApplicationDto>> GetUserPassword(RequestApplication<string> request);
-        Task<ResponseApplication<UserApplicationDto>> GetUserPhone(RequestApplication<string> request);
-        Task<ResponseApplication<UserApplicationDto>> GetUserById(RequestApplication<Guid> request);
-        Task<ResponseApplication<bool>> InsertUser(RequestApplication<UserApplicationDto> request);
-        Task<ResponseApplication<bool>> DeleteUser(RequestApplication<UserApplicationDto> request);
-        Task<ResponseApplication<bool>> UpdateUser(RequestApplication<UserApplicationDto> request);
-        Task<ResponseApplication<bool>> UpdateImageUser(RequestApplication<UserApplicationDto> request);
-        Task<ResponseApplication<IEnumerable<UserApplicationDto>>> GetAllUsers(Expression<Func<UserApplicationDto, bool>>? filter = null);
+        Task<ResponseApplication<UserApplicationDto>> GetUserEmailAsync(RequestApplication<string> request);
+        Task<ResponseApplication<UserApplicationDto>> GetUserPasswordAsync(RequestApplication<string> request);
+        Task<ResponseApplication<UserApplicationDto>> GetUserPhoneAsync(RequestApplication<string> request);
+        Task<ResponseApplication<UserApplicationDto>> GetUserByIdAsync(RequestApplication<Guid> request);
+        Task<ResponseApplication<bool>> InsertUserAsync(RequestApplication<UserApplicationDto> request);
+        Task<ResponseApplication<bool>> DeleteUserAsync(RequestApplication<Guid> request);
+        Task<ResponseApplication<bool>> UpdateUserAsync(RequestApplication<UserApplicationDto> request);
+        Task<ResponseApplication<bool>> UpdateImageUserAsync(RequestApplication<UserApplicationDto> request);
+        Task<ResponseApplication<IEnumerable<UserApplicationDto>>> GetAllUsersAsync(Expression<Func<UserApplicationDto, bool>>? filter = null);
     }
 }

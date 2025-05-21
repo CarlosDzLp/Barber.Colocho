@@ -4,8 +4,6 @@ using Barber.Colocho.Application.Interface.Response;
 using Barber.Colocho.Application.Interface.User;
 using Barber.Colocho.Domain.Interface.Response;
 using Barber.Colocho.Domain.Interface.User;
-using Barber.Colocho.Transversal.Validations.Extensions;
-using FluentValidation;
 using System.Linq.Expressions;
 
 namespace Barber.Colocho.Application.Main.User
@@ -16,68 +14,72 @@ namespace Barber.Colocho.Application.Main.User
         #region Constructor
         private readonly IUserDomain userDomain;
         public readonly IMapper mapper;
-        private readonly IValidator<UserApplicationDto> userValidator;
 
-        public UserApplication(IUserDomain userDomain, IMapper mapper, IValidator<UserApplicationDto> userValidator)
+        public UserApplication(IUserDomain userDomain, IMapper mapper)
         {
             this.userDomain = userDomain;
             this.mapper = mapper;
-            this.userValidator = userValidator;
         }       
         #endregion
 
-        public async Task<ResponseApplication<bool>> DeleteUser(RequestApplication<UserApplicationDto> request)
+        public async Task<ResponseApplication<bool>> DeleteUserAsync(RequestApplication<Guid> request)
         {
-            var validationResult = await userValidator.ValidateAsStringAsync(request.Request);
-            if (!string.IsNullOrWhiteSpace(validationResult))
+            if (request == null)
                 return new ResponseApplication<bool>
                 {
                     Result = false,
-                    Message = validationResult
+                    Message = "object null"
                 };
 
-            var requestDomain = mapper.Map<RequestDomain<Domain.Entity.User.UserDomainDto>>(request);
-            var responseDomain = await userDomain.DeleteUser(requestDomain);
+            if (request.Request == Guid.Empty)
+                return new ResponseApplication<bool>
+                {
+                    Result = false,
+                    Message = "Object null request"
+                };
+
+            var requestDomain = mapper.Map<RequestDomain<Guid>>(request);
+            var responseDomain = await userDomain.DeleteUserAsync(requestDomain);
             var responseApplication = mapper.Map<ResponseApplication<bool>>(responseDomain);
             return responseApplication;
         }
 
-        public Task<ResponseApplication<IEnumerable<UserApplicationDto>>> GetAllUsers(Expression<Func<UserApplicationDto, bool>>? filter = null)
+        public Task<ResponseApplication<IEnumerable<UserApplicationDto>>> GetAllUsersAsync(Expression<Func<UserApplicationDto, bool>>? filter = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseApplication<UserApplicationDto>> GetUserById(RequestApplication<Guid> request)
+        public Task<ResponseApplication<UserApplicationDto>> GetUserByIdAsync(RequestApplication<Guid> request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseApplication<UserApplicationDto>> GetUserEmail(RequestApplication<string> request)
+        public Task<ResponseApplication<UserApplicationDto>> GetUserEmailAsync(RequestApplication<string> request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseApplication<UserApplicationDto>> GetUserPassword(RequestApplication<string> request)
+        public Task<ResponseApplication<UserApplicationDto>> GetUserPasswordAsync(RequestApplication<string> request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseApplication<UserApplicationDto>> GetUserPhone(RequestApplication<string> request)
+        public Task<ResponseApplication<UserApplicationDto>> GetUserPhoneAsync(RequestApplication<string> request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseApplication<bool>> InsertUser(RequestApplication<UserApplicationDto> request)
+        public Task<ResponseApplication<bool>> InsertUserAsync(RequestApplication<UserApplicationDto> request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseApplication<bool>> UpdateImageUser(RequestApplication<UserApplicationDto> request)
+        public Task<ResponseApplication<bool>> UpdateImageUserAsync(RequestApplication<UserApplicationDto> request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseApplication<bool>> UpdateUser(RequestApplication<UserApplicationDto> request)
+        public Task<ResponseApplication<bool>> UpdateUserAsync(RequestApplication<UserApplicationDto> request)
         {
             throw new NotImplementedException();
         }

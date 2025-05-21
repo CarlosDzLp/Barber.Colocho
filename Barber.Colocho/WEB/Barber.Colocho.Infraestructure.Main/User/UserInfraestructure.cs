@@ -15,11 +15,13 @@ namespace Barber.Colocho.Infraestructure.Main.User
         }
         #endregion
 
-        public async Task<ResponseInfraestructure<bool>> DeleteUser(RequestInfraestructure<Data.Tables.User> request)
+        public async Task<ResponseInfraestructure<bool>> DeleteUserAsync(RequestInfraestructure<Guid> request)
         {
-            request.Request.Deleted = DateTime.UtcNow;
-            request.Request.IsActive = false;
-            await user.UpdateAsync(request.Request);
+            var us = await user.FindAsync(c => c.Id == request.Request);
+            us.Deleted = DateTime.UtcNow;
+            us.Updated = DateTime.UtcNow;
+            us.IsActive = false;
+            await user.UpdateAsync(us);
             return new ResponseInfraestructure<bool>
             {
                 Result = true,
@@ -28,7 +30,7 @@ namespace Barber.Colocho.Infraestructure.Main.User
             };
         }
 
-        public async Task<ResponseInfraestructure<IEnumerable<Data.Tables.User>>> GetAllUsers(Expression<Func<Data.Tables.User, bool>>? filter = null)
+        public async Task<ResponseInfraestructure<IEnumerable<Data.Tables.User>>> GetAllUsersAsync(Expression<Func<Data.Tables.User, bool>>? filter = null)
         {
             var userAll = await user.GetAllAsync(filter);
             return new ResponseInfraestructure<IEnumerable<Data.Tables.User>>
@@ -39,7 +41,7 @@ namespace Barber.Colocho.Infraestructure.Main.User
             };
         }
 
-        public async Task<ResponseInfraestructure<Data.Tables.User>> GetUserById(RequestInfraestructure<Guid> request)
+        public async Task<ResponseInfraestructure<Data.Tables.User>> GetUserByIdAsync(RequestInfraestructure<Guid> request)
         {
             var us = await user.FindAsync(c => c.Id == request.Request);
             return new ResponseInfraestructure<Data.Tables.User>
@@ -49,9 +51,9 @@ namespace Barber.Colocho.Infraestructure.Main.User
             };
         }
 
-        public async Task<ResponseInfraestructure<Data.Tables.User>> GetUserEmail(RequestInfraestructure<string> request)
+        public async Task<ResponseInfraestructure<Data.Tables.User>> GetUserEmailAsync(RequestInfraestructure<string> request)
         {
-            var us = await user.FindAsync(c=>c.Email ==  request.Request);
+            var us = await user.FindAsync(c => c.Email == request.Request);
             return new ResponseInfraestructure<Data.Tables.User>
             {
                 Result = us,
@@ -59,7 +61,7 @@ namespace Barber.Colocho.Infraestructure.Main.User
             };
         }
 
-        public async Task<ResponseInfraestructure<Data.Tables.User>> GetUserPassword(RequestInfraestructure<string> request)
+        public async Task<ResponseInfraestructure<Data.Tables.User>> GetUserPasswordAsync(RequestInfraestructure<string> request)
         {
             var us = await user.FindAsync(c => c.Pass == request.Request);
             return new ResponseInfraestructure<Data.Tables.User>
@@ -69,7 +71,7 @@ namespace Barber.Colocho.Infraestructure.Main.User
             };
         }
 
-        public async Task<ResponseInfraestructure<Data.Tables.User>> GetUserPhone(RequestInfraestructure<string> request)
+        public async Task<ResponseInfraestructure<Data.Tables.User>> GetUserPhoneAsync(RequestInfraestructure<string> request)
         {
             var us = await user.FindAsync(c => c.Phone == request.Request);
             return new ResponseInfraestructure<Data.Tables.User>
@@ -79,7 +81,7 @@ namespace Barber.Colocho.Infraestructure.Main.User
             };
         }
 
-        public async Task<ResponseInfraestructure<bool>> InsertUser(RequestInfraestructure<Data.Tables.User> request)
+        public async Task<ResponseInfraestructure<bool>> InsertUserAsync(RequestInfraestructure<Data.Tables.User> request)
         {
             var us = await user.AddAsync(request.Request);
             return new ResponseInfraestructure<bool>
@@ -89,7 +91,7 @@ namespace Barber.Colocho.Infraestructure.Main.User
             };
         }
 
-        public async Task<ResponseInfraestructure<bool>> UpdateImageUser(RequestInfraestructure<Data.Tables.User> request)
+        public async Task<ResponseInfraestructure<bool>> UpdateImageUserAsync(RequestInfraestructure<Data.Tables.User> request)
         {
             var us = await user.FindAsync(c => c.Id == request.Request.Id);
             if(us != null)
@@ -104,7 +106,7 @@ namespace Barber.Colocho.Infraestructure.Main.User
             };
         }
 
-        public async Task<ResponseInfraestructure<bool>> UpdateUser(RequestInfraestructure<Data.Tables.User> request)
+        public async Task<ResponseInfraestructure<bool>> UpdateUserAsync(RequestInfraestructure<Data.Tables.User> request)
         {
             var us = await user.FindAsync(c => c.Id == request.Request.Id);
             if (us != null)

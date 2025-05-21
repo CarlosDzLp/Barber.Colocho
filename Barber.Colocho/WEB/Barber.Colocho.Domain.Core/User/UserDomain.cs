@@ -22,7 +22,7 @@ namespace Barber.Colocho.Domain.Core.User
         }
         #endregion
 
-        public async Task<ResponseDomain<bool>> DeleteUser(RequestDomain<UserDomainDto> request)
+        public async Task<ResponseDomain<bool>> DeleteUserAsync(RequestDomain<Guid> request)
         {
             if (request == null)
                 return new ResponseDomain<bool>
@@ -31,55 +31,66 @@ namespace Barber.Colocho.Domain.Core.User
                     Count = 0,
                     Message = "Campos vacios"
                 };
-            if (request.Request.Id == null)
+            if (request.Request == Guid.Empty)
                 return new ResponseDomain<bool>
                 {
                     Result = false,
                     Count = 0,
-                    Message = "Usuario no encntrado"
+                    Message = "Usuario no encontrado"
                 };
-                var mapRequest = mapper.Map<RequestInfraestructure<Infraestructure.Data.Tables.User>>(request);
-                var result = await userInfraestructure.DeleteUser(mapRequest);
-                var mapResponse = mapper.Map<ResponseDomain<bool>>(result);
-                return mapResponse;
+
+
+            var mapRequest = mapper.Map<RequestInfraestructure<Guid>>(request);
+            var us = await userInfraestructure.GetUserByIdAsync(mapRequest);
+            if (us != null && us.Result == null)
+                return new ResponseDomain<bool>
+                {
+                    Result = false,
+                    Message = "Usuario no encontrado"
+                };
+
+
+            var result = await userInfraestructure.DeleteUserAsync(mapRequest);
+            var mapResponse = mapper.Map<ResponseDomain<bool>>(result);
+            return mapResponse;
         }
 
-        public Task<ResponseDomain<IEnumerable<UserDomainDto>>> GetAllUsers(Expression<Func<UserDomainDto, bool>>? filter = null)
+        public Task<ResponseDomain<IEnumerable<UserDomainDto>>> GetAllUsersAsync(Expression<Func<UserDomainDto, bool>>? filter = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDomain<UserDomainDto>> GetUserById(RequestDomain<Guid> request)
+        public Task<ResponseDomain<UserDomainDto>> GetUserByIdAsync(RequestDomain<Guid> request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDomain<UserDomainDto>> GetUserEmail(RequestDomain<string> request)
+        public Task<ResponseDomain<UserDomainDto>> GetUserEmailAsync(RequestDomain<string> request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDomain<UserDomainDto>> GetUserPassword(RequestDomain<string> request)
+        public Task<ResponseDomain<UserDomainDto>> GetUserPasswordAsync(RequestDomain<string> request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDomain<UserDomainDto>> GetUserPhone(RequestDomain<string> request)
+        public Task<ResponseDomain<UserDomainDto>> GetUserPhoneAsync(RequestDomain<string> request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDomain<bool>> InsertUser(RequestDomain<UserDomainDto> request)
+        public Task<ResponseDomain<bool>> InsertUserAsync(RequestDomain<UserDomainDto> request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDomain<bool>> UpdateImageUser(RequestDomain<UserDomainDto> request)
+        public Task<ResponseDomain<bool>> UpdateImageUserAsync(RequestDomain<UserDomainDto> request)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDomain<bool>> UpdateUser(RequestDomain<UserDomainDto> request)
+        public Task<ResponseDomain<bool>> UpdateUserAsync(RequestDomain<UserDomainDto> request)
         {
             throw new NotImplementedException();
         }
