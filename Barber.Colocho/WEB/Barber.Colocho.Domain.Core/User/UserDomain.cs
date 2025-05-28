@@ -4,7 +4,6 @@ using Barber.Colocho.Domain.Interface.Response;
 using Barber.Colocho.Domain.Interface.User;
 using Barber.Colocho.Infraestructure.Repository.Response;
 using Barber.Colocho.Infraestructure.Repository.User;
-using System.Linq.Expressions;
 
 namespace Barber.Colocho.Domain.Core.User
 {
@@ -22,77 +21,40 @@ namespace Barber.Colocho.Domain.Core.User
         }
         #endregion
 
-        public async Task<ResponseDomain<bool>> DeleteUserAsync(RequestDomain<Guid> request)
+        public async Task<ResponseDomain<bool>> DeleteAccount(RequestDomain<Guid> request)
         {
-            if (request == null)
-                return new ResponseDomain<bool>
-                {
-                    Result = false,
-                    Count = 0,
-                    Message = "Campos vacios"
-                };
-            if (request.Request == Guid.Empty)
-                return new ResponseDomain<bool>
-                {
-                    Result = false,
-                    Count = 0,
-                    Message = "Usuario no encontrado"
-                };
-
-
             var mapRequest = mapper.Map<RequestInfraestructure<Guid>>(request);
-            var us = await userInfraestructure.GetUserByIdAsync(mapRequest);
-            if (us != null && us.Result == null)
+            var searchUser = await userInfraestructure.GetUserByIdAsync(mapRequest);
+            if (!searchUser.IsSuccess)
                 return new ResponseDomain<bool>
                 {
                     Result = false,
                     Message = "Usuario no encontrado"
                 };
 
-
-            var result = await userInfraestructure.DeleteUserAsync(mapRequest);
-            var mapResponse = mapper.Map<ResponseDomain<bool>>(result);
-            return mapResponse;
+            var requestInfra = new RequestInfraestructure<Infraestructure.Data.Tables.User>()
+            {
+                Request = searchUser.Result
+            };
+            var responseInfraestructure = await userInfraestructure.DeleteAccount(requestInfra);
+            var response = mapper.Map<ResponseDomain<bool>>(responseInfraestructure);
+            return response;
         }
 
-        public Task<ResponseDomain<IEnumerable<UserDomainDto>>> GetAllUsersAsync(Expression<Func<UserDomainDto, bool>>? filter = null)
+        public async Task<ResponseDomain<UserDomainDto>> GetUserByIdAsync(RequestDomain<Guid> request)
         {
-            throw new NotImplementedException();
-        }
+            if (request.Request == Guid.Empty)
+                return new ResponseDomain<UserDomainDto>
+                {
+                    Result = null,
+                    IsSuccess = false,
+                    Message ="Ingrese el Id del usuario"
+                };
 
-        public Task<ResponseDomain<UserDomainDto>> GetUserByIdAsync(RequestDomain<Guid> request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ResponseDomain<UserDomainDto>> GetUserEmailAsync(RequestDomain<string> request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ResponseDomain<UserDomainDto>> GetUserPasswordAsync(RequestDomain<string> request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ResponseDomain<UserDomainDto>> GetUserPhoneAsync(RequestDomain<string> request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ResponseDomain<bool>> InsertUserAsync(RequestDomain<UserDomainDto> request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ResponseDomain<bool>> UpdateImageUserAsync(RequestDomain<UserDomainDto> request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ResponseDomain<bool>> UpdateUserAsync(RequestDomain<UserDomainDto> request)
-        {
-            throw new NotImplementedException();
+            var requestInfra = mapper.Map<RequestInfraestructure<Guid>>(request);
+            var getUser = await userInfraestructure.GetUserByIdAsync(requestInfra);
+            var responseDomain = mapper.Map<ResponseDomain<UserDomainDto>>(getUser);
+            return responseDomain; 
         }
     }
 }

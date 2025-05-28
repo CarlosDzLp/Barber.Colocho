@@ -47,11 +47,9 @@ namespace Barber.Colocho.Infraestructure.Data.Tables
 
         public string IdTypeRegister { get; set; }
 
-        public bool IsEmailConfirmed { get; set; }
+        public bool IsDeletedAccount { get; set; }
 
-        public bool IsPhoneConfirmed { get; set; }
-
-        public bool IsAccept { get; set; }
+        public bool IsConfirmedAccount { get; set; }
 
         public virtual ICollection<Code> Code { get; set; }
 

@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="9.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.5">
       <PrivateAssets>all</PrivateAssets>
@@ -33,6 +34,7 @@
     <ProjectReference Include="..\Barber.Colocho.Infraestructure.Mapper\Barber.Colocho.Transversal.Mapper.csproj" />
     <ProjectReference Include="..\Barber.Colocho.Infraestructure.Persistence\Barber.Colocho.Infraestructure.Persistence.csproj" />
     <ProjectReference Include="..\Barber.Colocho.Infraestructure.Swagger\Barber.Colocho.Transversal.Swagger.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Transversal.Middleware\Barber.Colocho.Transversal.Middleware.csproj" />
     <ProjectReference Include="..\Barber.Colocho.Transversal.Resources\Barber.Colocho.Transversal.Resources.csproj" />
     <ProjectReference Include="..\Barber.Colocho.Transversal.Validations\Barber.Colocho.Transversal.Validations.csproj" />
   </ItemGroup>

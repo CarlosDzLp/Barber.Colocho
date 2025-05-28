@@ -20,8 +20,7 @@ namespace Barber.Colocho.Infraestructure.Main.Version
             var result = await version.FindAsync(c => c.IsActive);
             return new ResponseInfraestructure<Data.Tables.Version>
             {
-                Count = (result != null) ? 1 : 0,
-                Message = null,
+                IsSuccess = result != null,
                 Result = result
             };
         }

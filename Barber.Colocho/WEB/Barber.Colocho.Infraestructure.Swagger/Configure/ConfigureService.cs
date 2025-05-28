@@ -103,7 +103,6 @@ namespace Barber.Colocho.Transversal.Swagger.Configure
         public static IApplicationBuilder AddSwaggerServiceApp(this IApplicationBuilder app, IServiceCollection services, WebApplication webApplication)
         {
             var env = app.ApplicationServices.GetRequiredService<IHostEnvironment>();
-            var provider = app.ApplicationServices.GetRequiredService<IApiVersionDescriptionProvider>();
             if (env.IsDevelopment())
             {
                 app.UseSwagger();
