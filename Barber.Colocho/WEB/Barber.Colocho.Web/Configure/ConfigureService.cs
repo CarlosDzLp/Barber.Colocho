@@ -3,10 +3,11 @@ using Barber.Colocho.Domain.Core.Configure;
 using Barber.Colocho.Infraestructure.Main.Configure;
 using Barber.Colocho.Infraestructure.Persistence.Configure;
 using Barber.Colocho.Transversal.Mapper.Configure;
+using Barber.Colocho.Transversal.Middleware.Configure;
 using Barber.Colocho.Transversal.Resources.Configure;
 using Barber.Colocho.Transversal.Swagger.Configure;
-using Barber.Colocho.Transversal.Middleware.Configure;
 using Barber.Colocho.Transversal.Validations.Configure;
+using Barber.Colocho.Transversal.Worker.Configure;
 
 namespace Barber.Colocho.Web.Configure
 {
@@ -21,6 +22,7 @@ namespace Barber.Colocho.Web.Configure
             services.AddDomainCoreService(configuration);
             services.AddInfrastructureMainService(configuration);
             services.AddTransversalAutoMapperService();
+            services.AddCronJobService();
             //services.AddTransversalWiddlewareService();
             return services;
         }

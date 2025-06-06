@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.Transversal.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.Transversal.Middleware", "WEB\Barber.Colocho.Transversal.Middleware\Barber.Colocho.Transversal.Middleware.csproj", "{886B3FB6-9B26-4FCC-ADEF-EF790C5C8BAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barber.Colocho.Transversal.Worker", "WEB\Barber.Colocho.Transversal.Worker\Barber.Colocho.Transversal.Worker.csproj", "{91F40286-7092-4620-BD61-7730505F66D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{886B3FB6-9B26-4FCC-ADEF-EF790C5C8BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{886B3FB6-9B26-4FCC-ADEF-EF790C5C8BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{886B3FB6-9B26-4FCC-ADEF-EF790C5C8BAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91F40286-7092-4620-BD61-7730505F66D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91F40286-7092-4620-BD61-7730505F66D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91F40286-7092-4620-BD61-7730505F66D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91F40286-7092-4620-BD61-7730505F66D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -184,6 +190,7 @@ Global
 		{435BDC8F-E0CC-44EC-B28F-A9E85C39F57A} = {6E2E74D0-962E-4134-88C7-82A8939A6823}
 		{4A8C6771-6908-4657-8B86-625CABCD973E} = {6E2E74D0-962E-4134-88C7-82A8939A6823}
 		{886B3FB6-9B26-4FCC-ADEF-EF790C5C8BAC} = {6E2E74D0-962E-4134-88C7-82A8939A6823}
+		{91F40286-7092-4620-BD61-7730505F66D4} = {6E2E74D0-962E-4134-88C7-82A8939A6823}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C884B179-C3DD-4491-B788-BFF70BD484D7}

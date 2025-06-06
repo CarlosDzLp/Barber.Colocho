@@ -37,6 +37,7 @@
     <ProjectReference Include="..\Barber.Colocho.Transversal.Middleware\Barber.Colocho.Transversal.Middleware.csproj" />
     <ProjectReference Include="..\Barber.Colocho.Transversal.Resources\Barber.Colocho.Transversal.Resources.csproj" />
     <ProjectReference Include="..\Barber.Colocho.Transversal.Validations\Barber.Colocho.Transversal.Validations.csproj" />
+    <ProjectReference Include="..\Barber.Colocho.Transversal.Worker\Barber.Colocho.Transversal.Worker.csproj" />
   </ItemGroup>
 
 </Project>
